@@ -8,63 +8,75 @@
 #include <atomic>
 #include <mutex>
 
-std::vector<int32> v;
 
-// Mutual Exclusive (상호배타적)
-std::mutex m;
-
-// RAII (Resource Acquisition Is Intialization)
-template<typename T>
-class LockGuard
+class SpinLock 
 {
 public:
-	LockGuard(T& m)
+	void lock()
 	{
-		_mutex = &m;
-		_mutex->lock();
-	}
-	~LockGuard()
-	{
-		_mutex->unlock();
+		// CAS (Compare And Swap)
+
+		bool expected = false;
+		bool desired = true;
+
+		// CAS 의사 코드
+		/*if (_locked == expected)
+		{
+			expected = _locked;
+			_locked = desired;
+			return true;
+		}
+		else
+		{
+			expected = _locked;
+			return false;
+		}*/
+
+		while (_locked.compare_exchange_strong(expected, desired) == false)
+		{
+			expected = false;
+		}
 	}
 
+	void unlock()
+	{
+		_locked.store(false);
+	}
 private:
-	T* _mutex;
+	std::atomic<bool> _locked = false;
 };
 
-void Push()
+int32 sum = 0;
+std::mutex m;
+SpinLock spinLock;
+
+void Add()
 {
-	std::lock_guard<std::mutex> lockguard(m);
-	for (int32 i= 0; i < 10000; i++)
+	for (int32 i = 0; i < 1'000'000; i++)
 	{
-		// 자물쇠 잠그기
-		//m.lock();
-		//LockGuard<std::mutex> lockguard(m);
-		//std::lock_guard<std::mutex> lockguard(m);
+		std::lock_guard<std::mutex> guard(m);
+		sum++;
+	}
+}
 
-		//std::unique_lock<std::mutex> uniqueLock(m, std::defer_lock);
-
-
-		// lock 을 뒤로 미를수있음
-		//uniqueLock.lock();
-
-		v.push_back(i);
-
-		//if (i == 5000)
-		//	break;
-		
-		// 자물쇠 풀기
-		//m.unlock();
+void Sub()
+{
+	for (int32 i = 0; i < 1'000'000; i++)
+	{
+		std::lock_guard<std::mutex> guard(m);
+		sum--;
 	}
 }
 
 int main()
 {
-	std::thread t1(Push);
-	std::thread t2(Push);
+
+
+	std::thread t1(Add);
+	std::thread t2(Sub);
 
 	t1.join();
 	t2.join();
 
-	std::cout << v.size() << std::endl;
+	std::cout << sum << std::endl;
 }
