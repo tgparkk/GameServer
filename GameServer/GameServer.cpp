@@ -54,7 +54,7 @@ void Add()
 {
 	for (int32 i = 0; i < 1'000'000; i++)
 	{
-		std::lock_guard<std::mutex> guard(m);
+		std::lock_guard<SpinLock> guard(spinLock);
 		sum++;
 	}
 }
@@ -63,7 +63,7 @@ void Sub()
 {
 	for (int32 i = 0; i < 1'000'000; i++)
 	{
-		std::lock_guard<std::mutex> guard(m);
+		std::lock_guard<SpinLock> guard(spinLock);
 		sum--;
 	}
 }
