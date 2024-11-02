@@ -4,48 +4,37 @@
 #include "pch.h"
 #include <iostream>
 #include "CorePch.h"
-
 #include <thread>
+#include <atomic>
 
-void HelloThread()
+std::atomic<int32> sum = 0;
+
+void Add()
 {
-    std::cout << "Hello Thread" << std::endl;
+	for (int32 i = 0; i < 1'000'000; i++)
+	{
+		sum.fetch_add(1); // sum++;  같음 , 오버로딩
+	}
 }
 
-void HelloThread_2(int32 num)
+void Sub()
 {
-    std::cout << num << std::endl;
+	for (int32 i = 0; i < 1'000'000; i++)
+	{
+		sum.fetch_add(-1); // sum--;  같음 , 오버로딩
+	}
 }
 
 int main()
 {
-    // System Call (OS 커널 요청)
-    //std::cout << "Hello World" << std::endl;
+	Add();
+	Sub();
+	std::cout << sum << std::endl;
 
-    std::thread t;
-    t = std::thread(HelloThread);
+	std::thread t1(Add);
+	std::thread t2(Sub);
+	t1.join();
+	t2.join();
 
-    int32 count = t.hardware_concurrency(); // CPU 코어 개수?
-    auto id = t.get_id(); // 쓰레드마다 id
-    t.detach(); // std::thread 객체에서 실제 쓰레드를 분리
-
-    if (t.joinable())
-        t.join();
-
-
-    std::vector<std::thread> v;
-    for (int32 i = 0; i < 10; i++)
-    {
-        v.push_back(std::thread(HelloThread_2, i));
-    }
-
-    for (int32 i = 0; i < 10; i++)
-    {
-        if (v[i].joinable())
-            v[i].join();
-    }
-
-
-    std::cout << "Hello Main" << std::endl;
-
+	std::cout << sum << std::endl;
 }
