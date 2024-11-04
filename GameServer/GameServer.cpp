@@ -10,37 +10,50 @@
 #include <windows.h>
 #include <future>
 
-#include <windows.h>
+int32 x = 0;
+int32 y = 0;
+int32 r1 = 0;
+int32 r2 = 0;
 
-int32 buffer[10000][10000];
+volatile bool ready; // 컴파일러에게 최적화 하지말라고 하기 위해 volatile 붙임
+
+void Thread_1()
+{
+	while (!ready);
+	y = 1; // Store y
+	r1 = x; // Load x
+}
+
+void Thread_2()
+{
+	while (!ready);
+	x = 1; // Store x
+	r2 = x; // Load y
+}
 
 int main()
 {
-	memset(buffer, 0, sizeof(buffer));
+	int32 count = 0;
+
+	while (true)
 	{
-		uint64 start = GetTickCount64();
+		ready = false;
+		count++;
 
-		int64 sum = 0;
-		for (int32 i = 0; i < 10000; i++)
-			for (int32 j = 0; j < 10000; j++)
-				sum += buffer[i][j];
+		x = y = r1 = r2 = 0;
 
-		uint64 end = GetTickCount64();
+		std::thread t1(Thread_1);
+		std::thread t2(Thread_2);
 
-		std::cout << "Elapsed Tick" << (end - start) << std::endl;
+		ready = true;
+
+		t1.join();
+		t2.join();
+
+		if (r1 == 0 && r2 == 0)
+			break;
 	}
 
-	memset(buffer, 0, sizeof(buffer));
-	{
-		uint64 start = GetTickCount64();
 
-		int64 sum = 0;
-		for (int32 i = 0; i < 10000; i++)
-			for (int32 j = 0; j < 10000; j++)
-				sum += buffer[j][i];
-
-		uint64 end = GetTickCount64();
-
-		std::cout << "Elapsed Tick" << (end - start) << std::endl;
-	}
+	std::cout << count << " 번만에 빠져나옴~" << std::endl;
 }
