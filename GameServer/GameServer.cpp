@@ -10,6 +10,7 @@
 #include <windows.h>
 #include <future>
 
+
 int64 result;
 
 int64 Calculate()
@@ -63,7 +64,6 @@ int main()
 		{
 
 		}
-
 		// 멤버함수를 사용하는법
 		class A
 		{
