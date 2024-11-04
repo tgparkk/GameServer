@@ -52,11 +52,7 @@ int main()
 		// TODO
 
 
-		//확인방법 1
-		/*
-		future.wait();
-		*/
-		int64 sum = future.get(); // 결과물이 이제서야 필요하다.
+		
 
 		//확인방법 2
 		std::future_status status = future.wait_for(std::chrono::milliseconds(1));
@@ -64,6 +60,14 @@ int main()
 		{
 
 		}
+
+		//확인방법 1
+		/*
+		future.wait();
+		*/
+		int64 sum = future.get(); // 결과물이 이제서야 필요하다.
+
+
 		// 멤버함수를 사용하는법
 		class A
 		{
