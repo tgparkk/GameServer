@@ -10,37 +10,90 @@
 #include <windows.h>
 #include <future>
 
-#include <windows.h>
+std::atomic<bool> ready;
+int32 value;
 
-int32 buffer[10000][10000];
+void Producer()
+{
+	value = 10;
+
+	ready.store(true, std::memory_order_seq_cst);
+}
+
+void Consumer()
+{
+	while (ready.load(std::memory_order_seq_cst) == false)
+		;
+
+	std::cout << value << std::endl;
+}
+
+
+std::atomic<bool> flag = false;
 
 int main()
 {
-	memset(buffer, 0, sizeof(buffer));
-	{
-		uint64 start = GetTickCount64();
+	ready = false;
+	value = 0;
+	std::thread t1(Producer);
+	std::thread t2(Consumer);
+	t1.join();
+	t2.join();
 
-		int64 sum = 0;
-		for (int32 i = 0; i < 10000; i++)
-			for (int32 j = 0; j < 10000; j++)
-				sum += buffer[i][j];
 
-		uint64 end = GetTickCount64();
+	// Memory Model (정책)
+	// 1) Sequentially Consistent (seq_cst)
+	// 가장 엄격 = 컴파일러 최적화 여지 적음 = 직관적
+	// 
+	// 2) Acquire-Release (acquire, release)
+	// 3) Relaxed (relaxed)
+	// 자유롭다 = 컴파일러 최적화 여지 많음 = 직관적이지 않음
 
-		std::cout << "Elapsed Tick" << (end - start) << std::endl;
-	}
 
-	memset(buffer, 0, sizeof(buffer));
-	{
-		uint64 start = GetTickCount64();
 
-		int64 sum = 0;
-		for (int32 i = 0; i < 10000; i++)
-			for (int32 j = 0; j < 10000; j++)
-				sum += buffer[j][i];
+	////flag = true;
+	//flag.store(true, std::memory_order_seq_cst);
 
-		uint64 end = GetTickCount64();
+	////bool val = flag;
+	//bool val = flag.load(std::memory_order_seq_cst);
 
-		std::cout << "Elapsed Tick" << (end - start) << std::endl;
-	}
+	//// 이전 flag 값을 prev에 넣고, flag 값을 수정
+	//{
+	//	//bool prev = flag;
+	//	//flag = true;
+	//	bool prev = flag.exchange(true);
+	//	
+	//}
+
+	//// CAS (Compare-And_Swap) 조건부 수정
+	//{
+	//	bool expected = false;
+	//	bool desired = true;
+	//	flag.compare_exchange_strong(expected, desired);
+
+	//	/*
+	//	아래는 flag.compare_exchange_strong(expected, desired); 의 의사코드
+	//	if (flag == expected)
+	//	{
+	//		flag = desired;
+	//		return true;
+	//	}
+	//	else
+	//	{
+	//		expected = flag;
+	//		return false;
+	//	}
+	//	*/
+
+	//	while (true)
+	//	{
+	//		bool expected = false;
+	//		bool desired = true;
+	//		flag.compare_exchange_weak(expected, desired);
+	//		// compare_exchange_weak 는 if(flag == expected) 
+	//		// 안으로 들어와도 memory interuption 발생시 return false;
+	//	}
+	//	
+	//}
+
 }
