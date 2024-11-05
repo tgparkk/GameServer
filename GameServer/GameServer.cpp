@@ -10,90 +10,30 @@
 #include <windows.h>
 #include <future>
 
-std::atomic<bool> ready;
-int32 value;
+//__declspec(thread) int32 value;
+thread_local int32 LThread = 0;
 
-void Producer()
+
+void ThreadMain(int32 threadId)
 {
-	value = 10;
+	LThread = threadId;
 
-	ready.store(true, std::memory_order_seq_cst);
+	while (true)
+	{
+		std::cout << "Hi ! I am Thread : " << LThread << std::endl;
+		std::this_thread::sleep_for(std::chrono::seconds(1));
+	}
 }
-
-void Consumer()
-{
-	while (ready.load(std::memory_order_seq_cst) == false)
-		;
-
-	std::cout << value << std::endl;
-}
-
-
-std::atomic<bool> flag = false;
 
 int main()
 {
-	ready = false;
-	value = 0;
-	std::thread t1(Producer);
-	std::thread t2(Consumer);
-	t1.join();
-	t2.join();
+	std::vector<std::thread> threads;
+	for (int32 i = 0; i < 10; i++)
+	{
+		int32 threadId = i + 1;
+		threads.push_back(std::thread(ThreadMain, threadId));
+	}
 
-
-	// Memory Model (정책)
-	// 1) Sequentially Consistent (seq_cst)
-	// 가장 엄격 = 컴파일러 최적화 여지 적음 = 직관적
-	// 
-	// 2) Acquire-Release (acquire, release)
-	// 3) Relaxed (relaxed)
-	// 자유롭다 = 컴파일러 최적화 여지 많음 = 직관적이지 않음
-
-
-
-	////flag = true;
-	//flag.store(true, std::memory_order_seq_cst);
-
-	////bool val = flag;
-	//bool val = flag.load(std::memory_order_seq_cst);
-
-	//// 이전 flag 값을 prev에 넣고, flag 값을 수정
-	//{
-	//	//bool prev = flag;
-	//	//flag = true;
-	//	bool prev = flag.exchange(true);
-	//	
-	//}
-
-	//// CAS (Compare-And_Swap) 조건부 수정
-	//{
-	//	bool expected = false;
-	//	bool desired = true;
-	//	flag.compare_exchange_strong(expected, desired);
-
-	//	/*
-	//	아래는 flag.compare_exchange_strong(expected, desired); 의 의사코드
-	//	if (flag == expected)
-	//	{
-	//		flag = desired;
-	//		return true;
-	//	}
-	//	else
-	//	{
-	//		expected = flag;
-	//		return false;
-	//	}
-	//	*/
-
-	//	while (true)
-	//	{
-	//		bool expected = false;
-	//		bool desired = true;
-	//		flag.compare_exchange_weak(expected, desired);
-	//		// compare_exchange_weak 는 if(flag == expected) 
-	//		// 안으로 들어와도 memory interuption 발생시 return false;
-	//	}
-	//	
-	//}
-
+	for (auto& t : threads)
+		t.join();
 }
