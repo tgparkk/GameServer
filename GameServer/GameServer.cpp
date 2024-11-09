@@ -1,39 +1,48 @@
-// GameServer.cpp : 이 파일에는 'main' 함수가 포함됩니다. 거기서 프로그램 실행이 시작되고 종료됩니다.
-//
-
 #include "pch.h"
 #include <iostream>
 #include "CorePch.h"
-#include <thread>
 #include <atomic>
 #include <mutex>
 #include <windows.h>
 #include <future>
+#include "ConcurrentQueue.h"
+#include "ConcurrentStack.h"
 
-//__declspec(thread) int32 value;
-thread_local int32 LThread = 0;
+LockQueue<int32> q;
+LockFreeStack<int32> s;
 
-
-void ThreadMain(int32 threadId)
+void Push()
 {
-	LThread = threadId;
-
 	while (true)
 	{
-		std::cout << "Hi ! I am Thread : " << LThread << std::endl;
-		std::this_thread::sleep_for(std::chrono::seconds(1));
+		int32 value = rand() % 100;
+		s.Push(value);
+
+		//std::this_thread::sleep_for(std::chrono::milliseconds(10));
 	}
 }
 
+void Pop()
+{
+	while (true)
+	{
+		auto data = s.TryPop();
+		if (data != nullptr)
+			std::cout << (*data) << std::endl;
+	}
+}
+
+
 int main()
 {
-	std::vector<std::thread> threads;
-	for (int32 i = 0; i < 10; i++)
-	{
-		int32 threadId = i + 1;
-		threads.push_back(std::thread(ThreadMain, threadId));
-	}
+	//std::shared_ptr<int32> ptr;
+	//bool value = std::atomic_is_lock_free(&ptr);
 
-	for (auto& t : threads)
-		t.join();
+	std::thread t1(Push);
+	std::thread t2(Pop);
+	std::thread t3(Pop);
+
+	t1.join();
+	t2.join();
+	t3.join();
 }
