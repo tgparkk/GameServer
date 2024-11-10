@@ -32,7 +32,7 @@ void ThreadManager::Launch(std::function<void(void)> callback)
 
 void ThreadManager::Join()
 {
-	for (std::thread& t : _threads)
+	for (thread& t : _threads)
 	{
 		if (t.joinable())
 			t.join();

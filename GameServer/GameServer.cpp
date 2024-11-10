@@ -13,8 +13,10 @@ void ThreadMain()
 {
 	while (true)
 	{
-		std::cout << "Hello ! I am thread... " << LThreadId << std::endl;
-		std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+
+		cout << "Hello ! I am thread... " << LThreadId << endl;
+		this_thread::sleep_for(1s);
+
 	}
 }
 
