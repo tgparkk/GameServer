@@ -1,6 +1,9 @@
 #pragma once
 
 #include "Types.h"
+#include "CoreGlobal.h"
+#include "CoreTLS.h"
+#include "CoreGlobal.h"
 #include <vector>
 #include <list>
 #include <queue>
@@ -11,6 +14,4 @@
 #include <unordered_set>
 
 #include <iostream>
-
-void HelloWorld();
 
