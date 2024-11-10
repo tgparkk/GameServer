@@ -1,4 +1,4 @@
-﻿#include "pch.h"
+#include "pch.h"
 #include <iostream>
 #include "CorePch.h"
 #include <atomic>
@@ -13,8 +13,10 @@ void ThreadMain()
 {
 	while (true)
 	{
+
 		cout << "Hello ! I am thread... " << LThreadId << endl;
 		this_thread::sleep_for(1s);
+
 	}
 }
 
