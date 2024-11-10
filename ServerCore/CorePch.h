@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Types.h"
-#include "CoreGlobal.h"
+#include "CoreMacro.h"
 #include "CoreTLS.h"
 #include "CoreGlobal.h"
 
@@ -14,7 +14,8 @@
 #include <unordered_map>
 #include <unordered_set>
 
+#include <windows.h>
 #include <iostream>
+using namespace std;
 
-using namespace std;;
-
+#include "Lock.h"
