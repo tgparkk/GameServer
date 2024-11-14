@@ -30,10 +30,10 @@ class Lock
     };
 
 public:
-    void WriteLock();
-    void WriteUnlock();
-    void ReadLock();
-    void ReadUnlock();
+    void WriteLock(const char* name);
+    void WriteUnlock(const char* name);
+    void ReadLock(const char* name);
+    void ReadUnlock(const char* name);
 
 
 private:
@@ -48,21 +48,21 @@ private:
 class ReadLockGuard
 {
 public:
-	ReadLockGuard(Lock& lock) : _lock(lock) {
-        _lock.ReadLock(); 
-    }
-	~ReadLockGuard() { _lock.ReadUnlock(); }
+    ReadLockGuard(Lock& lock, const char* name) : _lock(lock), _name(name) { _lock.ReadLock(name); }
+    ~ReadLockGuard() { _lock.ReadUnlock(_name); }
 
 private:
-	Lock& _lock;
+    Lock& _lock;
+    const char* _name;
 };
 
 class WriteLockGuard
 {
 public:
-	WriteLockGuard(Lock& lock) : _lock(lock) { _lock.WriteLock(); }
-	~WriteLockGuard() { _lock.WriteUnlock(); }
+    WriteLockGuard(Lock& lock, const char* name) : _lock(lock), _name(name) { _lock.WriteLock(name); }
+    ~WriteLockGuard() { _lock.WriteUnlock(_name); }
 
 private:
-	Lock& _lock;
+    Lock& _lock;
+    const char* _name;
 };
