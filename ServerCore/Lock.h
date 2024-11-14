@@ -14,7 +14,7 @@ W : WriteFlag (Exclusive Lock Owner ThreadId)
 R : ReadFlag (Shared Lock Count)
 ---------------------------------------------*/
 
-
+// W -> W (O)
 // W -> R (O)
 // R -> W (X)
 // read lock 에서 write lock 을 잡진 않는다.
@@ -48,7 +48,9 @@ private:
 class ReadLockGuard
 {
 public:
-	ReadLockGuard(Lock& lock) : _lock(lock) { _lock.ReadLock(); }
+	ReadLockGuard(Lock& lock) : _lock(lock) {
+        _lock.ReadLock(); 
+    }
 	~ReadLockGuard() { _lock.ReadUnlock(); }
 
 private:
