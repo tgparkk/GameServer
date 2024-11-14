@@ -9,12 +9,15 @@
 
 class TestLock
 {
-	USE_LOCK;
+	USE_LOCK; //Lock _locks[1]; 와 같음
+	
 
 public:
 	int32 TestRead()
 	{
 		READ_LOCK;
+
+		//WRITE_LOCK; crash 발생
 
 		if (_queue.empty())
 			return -1;
