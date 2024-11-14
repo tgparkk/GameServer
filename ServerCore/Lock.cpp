@@ -84,6 +84,8 @@ void Lock::ReadLock()
 
 void Lock::ReadUnlock()
 {
+	// fetch_sub 은 파라미터 만큼 뺀 다음에
+	// 이전 값을 리턴
 	if ((_lockFlag.fetch_sub(1) & READ_COUNT_MASK) == 0)
 		CRASH("MULTIPLE_UNLOCK");
 }
