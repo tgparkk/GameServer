@@ -6,20 +6,27 @@
 -----------------*/
 
 /*--------------------------------------------
+* 32비트
+* int32 에서 한번에 관리 가능
+* 
 [WWWWWWWW][WWWWWWWW][RRRRRRRR][RRRRRRRR]
 W : WriteFlag (Exclusive Lock Owner ThreadId)
 R : ReadFlag (Shared Lock Count)
 ---------------------------------------------*/
 
+
+// W -> R (O)
+// R -> W (X)
+// read lock 에서 write lock 을 잡진 않는다.
 class Lock
 {
     enum : uint32
     {
-        ACQUIRE_TIMEOUT_TICK = 10000,
+        ACQUIRE_TIMEOUT_TICK = 10000,//10초
         MAX_SPIN_COUNT = 5000,
         WRITE_THREAD_MASK = 0xFFFF'0000,
         READ_COUNT_MASK = 0x0000'FFFF,
-        EMPTY_FLAG = 0x0000'0000
+        EMPTY_FLAG = 0x0000'0000 // 아무도 소유 X
     };
 
 public:
@@ -27,6 +34,7 @@ public:
     void WriteUnlock();
     void ReadLock();
     void ReadUnlock();
+
 
 private:
     Atomic<uint32> _lockFlag = EMPTY_FLAG;
