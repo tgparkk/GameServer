@@ -9,79 +9,54 @@
 
 #include "RefCounting.h"
 
-class Wraight : public RefCountable
+using KnightRef = TSharedPtr<class Knight>;
+using InventoryRef = TSharedPtr<class Inventory>;
+
+class Knight : public RefCountable
 {
 public:
-	int _hp = 150;
-	int _posX = 0;
-	int _posY = 0;
-};
-
-using WraightRef = TSharedPtr<Wraight>;
-
-class Missile : public RefCountable
-{
-public:
-	void SetTarget(WraightRef target)
+	Knight()
 	{
+		cout << "Knight()" << endl;
+	}
+	
+	~Knight()
+	{
+		cout << "~Knight()" << endl;
+
+	}
+
+	void SetTarget(KnightRef target) {
 		_target = target;
-		// 중간에 개입 가능
-		//target->AddRef();
 	}
 
-	bool Update()
-	{
-		if (_target == nullptr)
-			return true;
-
-		int posX = _target->_posX;
-		int posY = _target->_posY;
-
-		// TODO : 쫓아간다
-
-		if (_target->_hp == 0)
-		{
-			//_target->ReleaseRef();
-			_target = nullptr;
-			return true;
-		}
-
-		return false;
-	}
-
-	WraightRef _target = nullptr;
+	KnightRef _target = nullptr;
+	InventoryRef _inventory = nullptr;
 };
 
-using MissileRef = TSharedPtr<Missile>;
+
+class Inventory : public RefCountable
+{
+public:
+	Inventory(KnightRef knight) : _knight(**knight)
+	{
+
+	}
+
+	// 참조로 인벤토리가 나이트를 가지고 있으면 문제 없음
+	Knight& _knight;
+};
 
 int main()
 {
-	WraightRef wraight(new Wraight());
-	wraight->ReleaseRef();
-	MissileRef missile(new Missile());
-	missile->ReleaseRef();
+	// RefCountable 으로 스마트포인터 사용시 단점
+	// 1) 이미 만들어진 클래스 대상으로 사용 불가 - RefCountable 를 상송받아야 하기 때문에
+	// 2) 순환(Cycle) 문제 - std:: 스마트포인터도 문제
 
-	missile->SetTarget(wraight);
+	KnightRef k1(new Knight());
+	k1->ReleaseRef();
 
-	// 레이스가 피격 당함
-	wraight->_hp = 0;
-	//delete wraight;
-	//wraight->ReleaseRef();
-	wraight = nullptr;
+	k1->_inventory = new Inventory(k1);
 
-	while (true)
-	{
-		if (missile)
-		{
-			if (missile->Update())
-			{
-				//missile->ReleaseRef();
-				missile = nullptr;
-			}
-		}
-	}
 
-	//missile->ReleaseRef();
-	missile = nullptr;
-	//delete missile;
 }
