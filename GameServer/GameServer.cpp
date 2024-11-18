@@ -9,6 +9,7 @@
 
 #include "RefCounting.h"
 #include "Memory.h"
+#include "Allocator.h"
 
 class Player
 {
@@ -41,12 +42,17 @@ public:
 
 int main()
 {
+	/*
+	* stl 에서 사용할 allocator 구현
+	*/
+
+	//vector<Knight> t;
+
 	// [                    [   ]]
-	Knight* knight = (Knight*)xnew<Player>();
+	Vector<Knight> v(10);
 
-	knight->_hp = 100;
-
-	xdelete(knight);
+	Map<int32, Knight> m;
+	m[100] = Knight();
 
 
 }
