@@ -42,17 +42,21 @@ public:
 
 int main()
 {
-	/*
-	* stl 에서 사용할 allocator 구현
-	*/
+	for (int32 i = 0; i < 5; i++)
+	{
+		GThreadManager->Launch([]()
+			{
+				while (true)
+				{
+					Vector<Knight> v(10);
 
-	//vector<Knight> t;
+					Map<int32, Knight> m;
+					m[100] = Knight();
 
-	// [                    [   ]]
-	Vector<Knight> v(10);
+					this_thread::sleep_for(10ms);
+				}
+			});
+	}
 
-	Map<int32, Knight> m;
-	m[100] = Knight();
-
-
+	GThreadManager->Join();
 }
