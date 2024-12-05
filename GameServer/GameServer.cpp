@@ -12,6 +12,8 @@
 #include <ws2tcpip.h>
 #pragma comment(lib, "ws2_32.lib")
 
+#include "Memory.h"
+
 void HandleError(const char* cause)
 {
 	int32 errCode = ::WSAGetLastError();
@@ -22,19 +24,54 @@ const int32 BUFSIZE = 1000;
 
 struct Session
 {
-	WSAOVERLAPPED overlapped = {};
 	SOCKET socket = INVALID_SOCKET;
 	char recvBuffer[BUFSIZE] = {};
 	int32 recvBytes = 0;
 };
 
-void CALLBACK RecvCallback(DWORD error, DWORD recvLen, LPWSAOVERLAPPED overlapped, DWORD flags)
+enum IO_TYPE
 {
-	cout << "Data Recv Len Callback = " << recvLen << endl;
-	// TODO : ø°ƒ⁄ º≠πˆ∏¶ ∏∏µÁ¥Ÿ∏È WSASend()
+	READ,
+	WRITE,
+	ACCEPT,
+	CONNECT,
+};
 
-	Session* session = (Session*)overlapped;
+struct OverlappedEx
+{
+	WSAOVERLAPPED overlapped = {};
+	int32 type = 0; // read, write, accept, connect ...
+};
 
+void WorkerThreadMain(HANDLE iocpHandle)
+{
+	while (true)
+	{
+		DWORD bytesTransferred = 0;
+		Session* session = nullptr;
+		OverlappedEx* overlappedEx = nullptr;
+
+		BOOL ret = ::GetQueuedCompletionStatus(iocpHandle, &bytesTransferred,
+			(ULONG_PTR*)&session, (LPOVERLAPPED*)&overlappedEx, INFINITE);
+
+		if (ret == FALSE || bytesTransferred == 0)
+		{
+			// TODO : Ïó∞Í≤∞ ÎÅäÍπÄ
+			continue;
+		}
+
+		ASSERT_CRASH(overlappedEx->type == IO_TYPE::READ);
+
+		cout << "Recv Data IOCP = " << bytesTransferred << endl;
+
+		WSABUF wsaBuf;
+		wsaBuf.buf = session->recvBuffer;
+		wsaBuf.len = BUFSIZE;
+
+		DWORD recvLen = 0;
+		DWORD flags = 0;
+		::WSARecv(session->socket, &wsaBuf, 1, &recvLen, &flags, &overlappedEx->overlapped, NULL);
+	}
 }
 
 int main()
@@ -45,10 +82,6 @@ int main()
 
 	SOCKET listenSocket = ::socket(AF_INET, SOCK_STREAM, 0);
 	if (listenSocket == INVALID_SOCKET)
-		return 0;
-
-	u_long on = 1;
-	if (::ioctlsocket(listenSocket, FIONBIO, &on) == INVALID_SOCKET)
 		return 0;
 
 	SOCKADDR_IN serverAddr;
@@ -65,95 +98,71 @@ int main()
 
 	cout << "Accept" << endl;
 
-	// Overlapped ∏µ® (Completion Routine ƒ›πÈ ±‚π›)
-	// - ∫Òµø±‚ ¿‘√‚∑¬ ¡ˆø¯«œ¥¬ º“ƒœ ª˝º∫
-	// - ∫Òµø±‚ ¿‘√‚∑¬ «‘ºˆ »£√‚ (øœ∑· ∑Á∆æ¿« Ω√¿€ ¡÷º“∏¶ ≥—∞‹¡ÿ¥Ÿ)
-	// - ∫Òµø±‚ ¿€æ˜¿Ã πŸ∑Œ øœ∑·µ«¡ˆ æ ¿∏∏È, WSA_IO_PENDING ø¿∑˘ ƒ⁄µÂ
-	// - ∫Òµø±‚ ¿‘√‚∑¬ «‘ºˆ »£√‚«— æ≤∑πµÂ∏¶ -> Alertable Wait ªÛ≈¬∑Œ ∏∏µÁ¥Ÿ
-	// ex) WaitForSingleObjectEx, WaitForMultipleObjectsEx, SleepEx, WSAWAitForMultipleEvents
-	// - ∫Òµø±‚ IO øœ∑·µ«∏È, øÓøµ√º¡¶¥¬ øœ∑· ∑Á∆æ »£√‚
-	// - øœ∑· ∑Á∆æ »£√‚¿Ã ∏µŒ ≥°≥™∏È, æ≤∑πµÂ¥¬ Alertable Wait ªÛ≈¬ø°º≠ ∫¸¡Æ≥™ø¬¥Ÿ
+	// Overlapped Î™®Îç∏ (Completion Routine ÏΩúÎ∞± Í∏∞Î∞ò)
+	// - ÎπÑÎèôÍ∏∞ ÏûÖÏ∂úÎ†• Ìï®Ïàò ÏôÑÎ£åÎêòÎ©¥, Ïì∞Î†àÎìúÎßàÎã§ ÏûàÎäî APC ÌÅêÏóê ÏùºÍ∞êÏù¥ ÏåìÏûÑ
+	// - Alertable Wait ÏÉÅÌÉúÎ°ú Îì§Ïñ¥Í∞ÄÏÑú APC ÌÅê ÎπÑÏö∞Í∏∞ (ÏΩúÎ∞± Ìï®Ïàò)
+	// Îã®Ï†ê) APCÌÅê Ïì∞Î†àÎìúÎßàÎã§ ÏûàÎã§! Alertable Wait ÏûêÏ≤¥ÎèÑ Ï°∞Í∏à Î∂ÄÎã¥!
+	// Îã®Ï†ê) Ïù¥Î≤§Ìä∏ Î∞©Ïãù ÏÜåÏºì:Ïù¥Î≤§Ìä∏ 1:1 ÎåÄÏùë
 
-	// 1) ø¿∑˘ πﬂª˝Ω√ 0 æ∆¥— ∞™
-	// 2) ¿¸º€ πŸ¿Ã∆Æ ºˆ
-	// 3) ∫Òµø±‚ ¿‘√‚∑¬ «‘ºˆ »£√‚ Ω√ ≥—∞‹¡ÿ WSAOVERLAPPED ±∏¡∂√º¿« ¡÷º“∞™
-	// 4) 0
-	//void CompletionRoutine()
+	// IOCP (Completion Port) Î™®Îç∏
+	// - APC -> Completion Port (Ïì∞Î†àÎìúÎßàÎã§ ÏûàÎäîÍ±¥ ÏïÑÎãàÍ≥† 1Í∞ú. Ï§ëÏïôÏóêÏÑú Í¥ÄÎ¶¨ÌïòÎäî APC ÌÅê?)
+	// - Alertable Wait -> CP Í≤∞Í≥º Ï≤òÎ¶¨Î•º GetQueuedCompletionStatus
+	// Ïì∞Î†àÎìúÎûë Í∂ÅÌï©Ïù¥ ÍµâÏû•Ìûà Ï¢ãÎã§!
 
-	// Select ∏µ®
-	// - ¿Â¡°) ¿©µµøÏ/∏Æ¥™Ω∫ ∞¯≈Î. 
-	// - ¥‹¡°) º∫¥… √÷«œ (∏≈π¯ µÓ∑œ ∫ÒøÎ), 64∞≥ ¡¶«—
-	// WSAEventSelect ∏µ®
-	// - ¿Â¡°) ∫Ò±≥¿˚ ∂ŸæÓ≥≠ º∫¥…
-	// - ¥‹¡°) 64∞≥ ¡¶«—
-	// Overlapped (¿Ã∫•∆Æ ±‚π›)
-	// - ¿Â¡°) º∫¥…
-	// - ¥‹¡°) 64∞≥ ¡¶«—
-	// Overlapped (ƒ›πÈ ±‚π›)
-	// - ¿Â¡°) º∫¥…
-	// - ¥‹¡°) ∏µÁ ∫Òµø±‚ º“ƒœ «‘ºˆø°º≠ ªÁøÎ ∞°¥…«œ¡¯ æ ¿Ω (accept). ∫Ûπ¯«— Alertable Wait¿∏∑Œ ¿Œ«— º∫¥… ¿˙«œ
-	// IOCP
+	// CreateIoCompletionPort
+	// GetQueuedCompletionStatus
 
-	// Reactor Pattern (~µ⁄¥ ∞‘. ≥Ì∫Ì∑Œ≈∑ º“ƒœ. º“ƒœ ªÛ≈¬ »Æ¿Œ »ƒ -> µ⁄¥ ∞‘ recv send »£√‚)
-	// Proactor Pattern (~πÃ∏Æ. Overlapped WSA~)
+	vector<Session*> sessionManager;
 
+	// CP ÏÉùÏÑ±
+	HANDLE iocpHandle = ::CreateIoCompletionPort(INVALID_HANDLE_VALUE, NULL, 0, 0);
+
+	// WorkerThreads
+	for (int32 i = 0; i < 5; i++)
+		GThreadManager->Launch([=]() { WorkerThreadMain(iocpHandle); });
+
+	// Main Thread = Accept Îã¥Îãπ
 	while (true)
 	{
 		SOCKADDR_IN clientAddr;
 		int32 addrLen = sizeof(clientAddr);
 
-		SOCKET clientSocket;
-		while (true)
-		{
-			clientSocket = ::accept(listenSocket, (SOCKADDR*)&clientAddr, &addrLen);
-			if (clientSocket != INVALID_SOCKET)
-				break;
-
-			if (::WSAGetLastError() == WSAEWOULDBLOCK)
-				continue;
-
-			// πÆ¡¶ ¿÷¥¬ ªÛ»≤
+		SOCKET clientSocket = ::accept(listenSocket, (SOCKADDR*)&clientAddr, &addrLen);
+		if (clientSocket == INVALID_SOCKET)
 			return 0;
-		}
 
-		Session session = Session{ clientSocket };
-		//WSAEVENT wsaEvent = ::WSACreateEvent();
+		Session* session = xnew<Session>();
+		session->socket = clientSocket;
+		sessionManager.push_back(session);
 
 		cout << "Client Connected !" << endl;
 
-		while (true)
-		{
-			WSABUF wsaBuf;
-			wsaBuf.buf = session.recvBuffer;
-			wsaBuf.len = BUFSIZE;
+		// ÏÜåÏºìÏùÑ CPÏóê Îì±Î°ù
+		::CreateIoCompletionPort((HANDLE)clientSocket, iocpHandle, /*Key*/(ULONG_PTR)session, 0);
 
-			DWORD recvLen = 0;
-			DWORD flags = 0;
-			if (::WSARecv(clientSocket, &wsaBuf, 1, &recvLen, &flags, &session.overlapped, RecvCallback) == SOCKET_ERROR)
-			{
-				if (::WSAGetLastError() == WSA_IO_PENDING)
-				{
-					// Pending
-					// Alertable Wait					
-					::SleepEx(INFINITE, TRUE);
-					//::WSAWaitForMultipleEvents(1, &wsaEvent, TRUE, WSA_INFINITE, TRUE);					
-				}
-				else
-				{
-					// TODO : πÆ¡¶ ¿÷¥¬ ªÛ»≤
-					break;
-				}
-			}
-			else
-			{
-				cout << "Data Recv Len = " << recvLen << endl;
-			}
-		}
+		WSABUF wsaBuf;
+		wsaBuf.buf = session->recvBuffer;
+		wsaBuf.len = BUFSIZE;
 
-		::closesocket(session.socket);
+		OverlappedEx* overlappedEx = new OverlappedEx();
+		overlappedEx->type = IO_TYPE::READ;
+
+		// ADD_REF
+		DWORD recvLen = 0;
+		DWORD flags = 0;
+		::WSARecv(clientSocket, &wsaBuf, 1, &recvLen, &flags, &overlappedEx->overlapped, NULL);
+
+		// Ïú†Ï†ÄÍ∞Ä Í≤åÏûÑ Ï†ëÏÜç Ï¢ÖÎ£å!
+		//Session* s = sessionManager.back();
+		//sessionManager.pop_back();
+		//xdelete(s);
+
+		//::closesocket(session.socket);
 		//::WSACloseEvent(wsaEvent);
 	}
 
-	// ¿©º” ¡æ∑·
+	GThreadManager->Join();
+
+	// ÏúàÏÜç Ï¢ÖÎ£å
 	::WSACleanup();
 }
