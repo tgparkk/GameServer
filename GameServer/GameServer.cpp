@@ -56,7 +56,7 @@ void WorkerThreadMain(HANDLE iocpHandle)
 
 		if (ret == FALSE || bytesTransferred == 0)
 		{
-			// TODO : ¿¬°á ²÷±è
+			// TODO : ì—°ê²° ëŠê¹€
 			continue;
 		}
 
@@ -98,30 +98,30 @@ int main()
 
 	cout << "Accept" << endl;
 
-	// Overlapped ¸ğµ¨ (Completion Routine Äİ¹é ±â¹İ)
-	// - ºñµ¿±â ÀÔÃâ·Â ÇÔ¼ö ¿Ï·áµÇ¸é, ¾²·¹µå¸¶´Ù ÀÖ´Â APC Å¥¿¡ ÀÏ°¨ÀÌ ½×ÀÓ
-	// - Alertable Wait »óÅÂ·Î µé¾î°¡¼­ APC Å¥ ºñ¿ì±â (Äİ¹é ÇÔ¼ö)
-	// ´ÜÁ¡) APCÅ¥ ¾²·¹µå¸¶´Ù ÀÖ´Ù! Alertable Wait ÀÚÃ¼µµ Á¶±İ ºÎ´ã!
-	// ´ÜÁ¡) ÀÌº¥Æ® ¹æ½Ä ¼ÒÄÏ:ÀÌº¥Æ® 1:1 ´ëÀÀ
+	// Overlapped ëª¨ë¸ (Completion Routine ì½œë°± ê¸°ë°˜)
+	// - ë¹„ë™ê¸° ì…ì¶œë ¥ í•¨ìˆ˜ ì™„ë£Œë˜ë©´, ì“°ë ˆë“œë§ˆë‹¤ ìˆëŠ” APC íì— ì¼ê°ì´ ìŒ“ì„
+	// - Alertable Wait ìƒíƒœë¡œ ë“¤ì–´ê°€ì„œ APC í ë¹„ìš°ê¸° (ì½œë°± í•¨ìˆ˜)
+	// ë‹¨ì ) APCí ì“°ë ˆë“œë§ˆë‹¤ ìˆë‹¤! Alertable Wait ìì²´ë„ ì¡°ê¸ˆ ë¶€ë‹´!
+	// ë‹¨ì ) ì´ë²¤íŠ¸ ë°©ì‹ ì†Œì¼“:ì´ë²¤íŠ¸ 1:1 ëŒ€ì‘
 
-	// IOCP (Completion Port) ¸ğµ¨
-	// - APC -> Completion Port (¾²·¹µå¸¶´Ù ÀÖ´Â°Ç ¾Æ´Ï°í 1°³. Áß¾Ó¿¡¼­ °ü¸®ÇÏ´Â APC Å¥?)
-	// - Alertable Wait -> CP °á°ú Ã³¸®¸¦ GetQueuedCompletionStatus
-	// ¾²·¹µå¶û ±ÃÇÕÀÌ ±²ÀåÈ÷ ÁÁ´Ù!
+	// IOCP (Completion Port) ëª¨ë¸
+	// - APC -> Completion Port (ì“°ë ˆë“œë§ˆë‹¤ ìˆëŠ”ê±´ ì•„ë‹ˆê³  1ê°œ. ì¤‘ì•™ì—ì„œ ê´€ë¦¬í•˜ëŠ” APC í?)
+	// - Alertable Wait -> CP ê²°ê³¼ ì²˜ë¦¬ë¥¼ GetQueuedCompletionStatus
+	// ì“°ë ˆë“œë‘ ê¶í•©ì´ êµ‰ì¥íˆ ì¢‹ë‹¤!
 
 	// CreateIoCompletionPort
 	// GetQueuedCompletionStatus
 
 	vector<Session*> sessionManager;
 
-	// CP »ı¼º
+	// CP ìƒì„±
 	HANDLE iocpHandle = ::CreateIoCompletionPort(INVALID_HANDLE_VALUE, NULL, 0, 0);
 
 	// WorkerThreads
 	for (int32 i = 0; i < 5; i++)
 		GThreadManager->Launch([=]() { WorkerThreadMain(iocpHandle); });
 
-	// Main Thread = Accept ´ã´ç
+	// Main Thread = Accept ë‹´ë‹¹
 	while (true)
 	{
 		SOCKADDR_IN clientAddr;
@@ -137,7 +137,7 @@ int main()
 
 		cout << "Client Connected !" << endl;
 
-		// ¼ÒÄÏÀ» CP¿¡ µî·Ï
+		// ì†Œì¼“ì„ CPì— ë“±ë¡
 		::CreateIoCompletionPort((HANDLE)clientSocket, iocpHandle, /*Key*/(ULONG_PTR)session, 0);
 
 		WSABUF wsaBuf;
@@ -152,7 +152,7 @@ int main()
 		DWORD flags = 0;
 		::WSARecv(clientSocket, &wsaBuf, 1, &recvLen, &flags, &overlappedEx->overlapped, NULL);
 
-		// À¯Àú°¡ °ÔÀÓ Á¢¼Ó Á¾·á!
+		// ìœ ì €ê°€ ê²Œì„ ì ‘ì† ì¢…ë£Œ!
 		//Session* s = sessionManager.back();
 		//sessionManager.pop_back();
 		//xdelete(s);
@@ -163,6 +163,6 @@ int main()
 
 	GThreadManager->Join();
 
-	// À©¼Ó Á¾·á
+	// ìœˆì† ì¢…ë£Œ
 	::WSACleanup();
 }
