@@ -44,7 +44,7 @@ void Lock::WriteLock(const char* name)
 			CRASH("LOCK_TIMEOUT");
 
 		// 소유권 놓기
-		this_thread::yield();
+		std::this_thread::yield();
 	}
 }
 
@@ -54,14 +54,22 @@ void Lock::WriteUnlock(const char* name)
 	GDeadLockProfiler->PopLock(name);
 #endif
 	// ReadLock 다 풀기 전에는 WriteUnlock 불가능.
+	// read_count 가 0 이 아니라면 에러 ( R -> W (X) )
 	if ((_lockFlag.load() & READ_COUNT_MASK) != 0)
 		CRASH("INVALID_UNLOCK_ORDER");
 
 	const int32 lockCount = --_writeCount;
+
+	// lockCount == 0 이 된다면,
+	// [WWWWWWWW][WWWWWWWW][RRRRRRRR][RRRRRRRR] 에서
+	// [WWWWWWWW][WWWWWWWW] 에 내 threadID 가 들어가 있을텐데
+	// 다 밀기 위해 _lockFlag.store(EMPTY_FLAG); 실행
 	if (lockCount == 0)
 		_lockFlag.store(EMPTY_FLAG);
 }
 
+// [WWWWWWWW][WWWWWWWW][RRRRRRRR][RRRRRRRR] 부분에서
+// [RRRRRRRR][RRRRRRRR] 부분에 몇명이 read 하는지 기입
 void Lock::ReadLock(const char* name)
 {
 #if _DEBUG
