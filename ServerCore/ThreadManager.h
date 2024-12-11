@@ -21,7 +21,7 @@ public:
 
 private:
 	Mutex			_lock;
-	vector<thread>	_threads;
+	vector<std::thread>	_threads;
 
 };
 

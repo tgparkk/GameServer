@@ -24,8 +24,8 @@ class Lock
     {
         ACQUIRE_TIMEOUT_TICK = 10000,//10초
         MAX_SPIN_COUNT = 5000,
-        WRITE_THREAD_MASK = 0xFFFF'0000,
-        READ_COUNT_MASK = 0x0000'FFFF,
+        WRITE_THREAD_MASK = 0xFFFF'0000, // write 를 추출하는
+        READ_COUNT_MASK = 0x0000'FFFF,   // read 를 추출하는
         EMPTY_FLAG = 0x0000'0000 // 아무도 소유 X
     };
 
