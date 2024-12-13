@@ -12,25 +12,19 @@
 #include <ws2tcpip.h>
 #pragma comment(lib, "ws2_32.lib")
 
-void HandleError(const char* cause)
-{
+void HandleError(const char* cause){
 	int32 errCode = ::WSAGetLastError();
 	cout << cause << " ErrorCode : " << errCode << endl;
 }
-
-int main()
-{
+int main(){
 	WSAData wsaData;
-	if (::WSAStartup(MAKEWORD(2, 2), &wsaData) != 0)
-		return 0;
+	if (::WSAStartup(MAKEWORD(2, 2), &wsaData) != 0)return 0;
 
 	SOCKET serverSocket = ::socket(AF_INET, SOCK_DGRAM, 0);
-	if (serverSocket == INVALID_SOCKET)
-	{
+	if (serverSocket == INVALID_SOCKET){
 		HandleError("Socket");
 		return 0;
 	}
-
 	// 소켓 옵션 
 	// 옵션을 해석하고 처리할 주체?
 	// 소켓 코드 -> SOL_SOCKET
@@ -64,20 +58,17 @@ int main()
 	//
 	//::closesocket(serverSocket);
 
-
 	// SO_SNDBUF = 송신 버퍼 크기
 	// SO_RCVBUF = 수신 버퍼 크기
-
 	int32 sendBufferSize;
 	int32 optionLen = sizeof(sendBufferSize);
 	::getsockopt(serverSocket, SOL_SOCKET, SO_SNDBUF, (char*)&sendBufferSize, &optionLen);
 	cout << "송신 버퍼 크기 : " << sendBufferSize << endl; // 65536
-
+	// 너무 큰 값하면, 내부에서 무시당함
 	int32 recvBufferSize;
 	optionLen = sizeof(recvBufferSize);
 	::getsockopt(serverSocket, SOL_SOCKET, SO_SNDBUF, (char*)&recvBufferSize, &optionLen);
 	cout << "수신 버퍼 크기 : " << recvBufferSize << endl; // 65536
-
 
 	// SO_REUSEADDR
 	// IP주소 및 port 재사용
@@ -96,7 +87,6 @@ int main()
 		bool enable = true;
 		::setsockopt(serverSocket, IPPROTO_TCP, TCP_NODELAY, (char*)&enable, sizeof(enable));
 	}
-
 	// 윈속 종료
 	::WSACleanup();
 }
