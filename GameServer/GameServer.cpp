@@ -87,6 +87,12 @@ int main()
 	// 3) networkEvent : 네트워크 이벤트 / 오류 정보가 저장
 	// WSAEnumNetworkEvents
 
+	//이벤트 객체는 두 가지 상태를 가집니다:
+	// Signaled(시그널드) 상태: 작업이 완료되었거나, 조건이 충족되었음을 의미.
+	// 
+	// Non - signaled(논시그널드) 상태 : 작업이 아직 완료되지 않았거나, 
+	// 조건이 충족되지 않았음을 의미.
+
 	vector<WSAEVENT> wsaEvents;
 	vector<Session> sessions;
 	sessions.reserve(100);
@@ -159,8 +165,7 @@ int main()
 			}
 		}
 		// FD_CLOSE 처리
-		if (networkEvents.lNetworkEvents & FD_CLOSE)
-		{
+		if (networkEvents.lNetworkEvents & FD_CLOSE) {
 			// TODO : Remove Socket
 		}
 	}
