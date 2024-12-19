@@ -44,7 +44,8 @@ template<typename Type>
 void xdelete(Type* obj)
 {
 	obj->~Type();
-	xxrelease(obj);
+	//xxrelease(obj);
+	PoolAllocator::Release(obj);
 }
 
 template<typename Type, typename... Args>
