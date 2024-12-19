@@ -18,11 +18,11 @@
 -----------------*/
 
 #ifdef _DEBUG
-#define xxalloc(size)		BaseAllocator::Alloc(size)
-#define xxrelease(ptr)		BaseAllocator::Release(ptr)
+#define xxalloc(size)		PoolAllocator::Alloc(size)
+#define xxrelease(ptr)		PoolAllocator::Release(ptr)
 #else
-#define xxalloc(size)		BaseAllocator::Alloc(size)
-#define xxrelease(ptr)		BaseAllocator::Release(ptr)
+#define xxalloc(size)		PoolAllocator::Alloc(size)
+#define xxrelease(ptr)		PoolAllocator::Release(ptr)
 #endif
 
 
