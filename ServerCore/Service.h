@@ -14,7 +14,7 @@ enum class ServiceType : uint8
 	Service
 --------------*/
 
-using SessionFactory = std::function<SessionRef(void)>;
+using SessionFactory = function<SessionRef(void)>;
 
 class Service : public enable_shared_from_this<Service>
 {
