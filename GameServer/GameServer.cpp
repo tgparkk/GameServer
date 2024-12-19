@@ -21,7 +21,7 @@ int main()
 	ServerServiceRef service = MakeShared<ServerService>(
 		NetAddress(L"127.0.0.1", 7777),
 		MakeShared<IocpCore>(),
-		MakeShared<GameSession>, // TODO : SessionManager µî
+		MakeShared<GameSession>, // TODO : SessionManager ë“±
 		100);
 
 	ASSERT_CRASH(service->Start());
@@ -33,9 +33,9 @@ int main()
 				while (true)
 				{
 					service->GetIocpCore()->Dispatch();
-				}				
+				}
 			});
-	}	
+	}
 
 	GThreadManager->Join();
 }

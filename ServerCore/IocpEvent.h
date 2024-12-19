@@ -6,7 +6,7 @@ enum class EventType : uint8
 {
 	Connect,
 	Accept,
-	//PreRecv, // 0 byte recv
+	//PreRecv,
 	Recv,
 	Send
 };
@@ -15,12 +15,12 @@ enum class EventType : uint8
 	IocpEvent
 ---------------*/
 
-class IocpEvent : public OVERLAPPED // 이렇게 하면 OVERLAPPED 의 
-{									// 포인터 주소와 
-public:								// 내가 만든 IocpEvent 포인터 주소
-	IocpEvent(EventType type);		// 동일
+class IocpEvent : public OVERLAPPED
+{
+public:
+	IocpEvent(EventType type);
 
-	void		Init();
+	void			Init();
 
 public:
 	EventType		eventType;
@@ -47,7 +47,7 @@ public:
 	AcceptEvent() : IocpEvent(EventType::Accept) {}
 
 public:
-	SessionRef  session = nullptr;
+	SessionRef	session = nullptr;
 };
 
 /*----------------

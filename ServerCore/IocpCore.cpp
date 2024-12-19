@@ -2,9 +2,6 @@
 #include "IocpCore.h"
 #include "IocpEvent.h"
 
-// TEMP
-//IocpCore GIocpCore;
-
 /*--------------
 	IocpCore
 ---------------*/
@@ -44,7 +41,7 @@ bool IocpCore::Dispatch(uint32 timeoutMs)
 		case WAIT_TIMEOUT:
 			return false;
 		default:
-			// TODO : ·Î±× Âï±â
+			// TODO : ë¡œê·¸ ì°ê¸°
 			IocpObjectRef iocpObject = iocpEvent->owner;
 			iocpObject->Dispatch(iocpEvent, numOfBytes);
 			break;
@@ -53,4 +50,3 @@ bool IocpCore::Dispatch(uint32 timeoutMs)
 
 	return true;
 }
-
