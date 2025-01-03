@@ -12,12 +12,12 @@ void GameSession::OnDisconnected()
 	GSessionManager.Remove(static_pointer_cast<GameSession>(shared_from_this()));
 }
 
-int32 GameSession::OnRecvPacket(BYTE* buffer, int32 len)
+void GameSession::OnRecvPacket(BYTE* buffer, int32 len)
 {
 	PacketHeader header = *((PacketHeader*)buffer);
 	cout << "Packet ID : " << header.id << "Size : " << header.size << endl;
 
-	return len;
+	//return len;
 }
 
 void GameSession::OnSend(int32 len)
