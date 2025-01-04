@@ -17,66 +17,67 @@ void ClientPacketHandler::HandlePacket(BYTE* buffer, int32 len)
 	}
 }
 
-// 패킷 설계 TEMP
-struct BuffData
+#pragma pack(1)
+
+// [ PKT_S_TEST ][BuffsListItem BuffsListItem BuffsListItem]
+struct PKT_S_TEST
 {
-	uint64 buffId;
-	float remainTime;
+	struct BuffsListItem
+	{
+		uint64 buffId;
+		float remainTime;
+	};
+
+	uint16 packetSize; // 공용 헤더
+	uint16 packetId; // 공용 헤더
+	uint64 id; // 8
+	uint32 hp; // 4
+	uint16 attack; // 2
+	uint16 buffsOffset;
+	uint16 buffsCount;
+
+	bool Validate()
+	{
+		uint32 size = 0;
+		size += sizeof(PKT_S_TEST);
+		size += buffsCount * sizeof(BuffsListItem);
+		if (size != packetSize)
+			return false;
+
+		if (buffsOffset + buffsCount * sizeof(BuffsListItem) > packetSize)
+			return false;
+
+		return true;
+	}
+	//vector<BuffData> buffs;
+	//wstring name;
 };
-
-struct S_TEST
-{
-	uint64 id;
-	uint32 hp;
-	uint16 attack;
-	// 가변 데이터
-	// 1) 문자열 (ex. name)
-	// 2) 그냥 바이트 배열 (ex. 길드 이미지)
-	// 3) 일반 리스트
-	vector<BuffData> buffs;
-
-	wstring name; // 2바이트 문자열
-
-};
+#pragma pack()
 
 void ClientPacketHandler::Handle_S_TEST(BYTE* buffer, int32 len)
 {
 	BufferReader br(buffer, len);
 
-	PacketHeader header;
-	br >> header;
+	if (len < sizeof(PKT_S_TEST))
+		return;
 
-	uint64 id;
-	uint32 hp;
-	uint16 attack;
-	br >> id >> hp >> attack;
+	PKT_S_TEST pkt;
+	br >> pkt;
 
-	cout << "ID: " << id << " HP : " << hp << " ATT : " << attack << endl;
+	if (pkt.Validate() == false)
+		return;
 
-	vector<BuffData> buffs;
-	uint16 buffCount;
-	br >> buffCount;
+	//cout << "ID: " << id << " HP : " << hp << " ATT : " << attack << endl;
 
-	buffs.resize(buffCount);
-	for (int32 i = 0; i < buffCount; i++)
-	{
-		br >> buffs[i].buffId >> buffs[i].remainTime;
-	}
+	vector<PKT_S_TEST::BuffsListItem> buffs;
 
-	cout << "BufCount : " << buffCount << endl;
-	for (int32 i = 0; i < buffCount; i++)
+	buffs.resize(pkt.buffsCount);
+	for (int32 i = 0; i < pkt.buffsCount; i++)
+		br >> buffs[i];
+
+	cout << "BufCount : " << pkt.buffsCount << endl;
+	for (int32 i = 0; i < pkt.buffsCount; i++)
 	{
 		cout << "BufInfo : " << buffs[i].buffId << " " << buffs[i].remainTime << endl;
 	}
-
-	wstring name; // 2바이트 문자열
-	uint16 nameLen;
-
-	br >> nameLen;
-	name.resize(nameLen);
-
-	br.Read((void*)name.data(), nameLen * sizeof(WCHAR));
-
-	wcout.imbue(std::locale("kor"));
-	wcout << name << endl;
 }
