@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\sttgp\Downloads\protobuf-cpp-3.21.12\protobuf-3.21.12\src\google\protobuf\compiler\main.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\sttgp\Downloads\protobuf-cpp-3.21.12\protobuf-3.21.12\cmake\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="C:\Users\sttgp\Downloads\protobuf-cpp-3.21.12\protobuf-3.21.12\solution\version.rc">
+      <Filter>Source Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{AA478311-367F-3589-8E2A-3EF64AE5CB8F}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

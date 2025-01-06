@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="D:\GIT\GameServer\protobuf-3.21.12\solution\CMakeFiles\6c66c568729e8d5053a71691df78824a\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{B4D447D5-B2E9-3D69-979C-989EB1664618}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

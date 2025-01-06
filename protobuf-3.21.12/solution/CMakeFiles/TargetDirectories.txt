@@ -1,0 +1,4 @@
+D:/GIT/GameServer/protobuf-3.21.12/solution/CMakeFiles/libprotobuf-lite.dir
+D:/GIT/GameServer/protobuf-3.21.12/solution/CMakeFiles/libprotobuf.dir
+D:/GIT/GameServer/protobuf-3.21.12/solution/CMakeFiles/ALL_BUILD.dir
+D:/GIT/GameServer/protobuf-3.21.12/solution/CMakeFiles/ZERO_CHECK.dir
