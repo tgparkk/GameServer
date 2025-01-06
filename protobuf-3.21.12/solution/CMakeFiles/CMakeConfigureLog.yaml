@@ -1,0 +1,575 @@
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/CMakeDetermineSystem.cmake:205 (message)"
+      - "CMakeLists.txt:5 (project)"
+    message: |
+      The system is: Windows - 10.0.26100 - AMD64
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:5 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+      Compiler:  
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      msbuild 踰꾩쟾 17.12.12+1cce77968(.NET Framework??
+      鍮뚮뱶 ?쒖옉: 2025-01-05 ?ㅽ썑 11:11:45
+      
+      1 ?몃뱶??"C:\\Users\\sttgp\\Downloads\\protobuf-cpp-3.21.12\\protobuf-3.21.12\\solution\\CMakeFiles\\3.31.3\\CompilerIdC\\CompilerIdC.vcxproj" ?꾨줈?앺듃(湲곕낯 ?\xc2\x80???낅땲??
+      PrepareForBuild:
+        "Debug\\" ?붾젆?곕━瑜?留뚮뱾怨??덉뒿?덈떎.
+        援ъ“??異쒕젰???ъ슜?????덉뒿?덈떎. 而댄뙆?쇰윭 吏꾨떒???쒖떇?\xc2\x80 ?ㅻ쪟 怨꾩링 援ъ“瑜?諛섏쁺?⑸땲?? ?먯꽭???댁슜?\xc2\x80 https://aka.ms/cpp/structured-output??李몄“?섏꽭??
+        "Debug\\CompilerIdC.tlog\\" ?붾젆?곕━瑜?留뚮뱾怨??덉뒿?덈떎.
+      InitializeBuildStatus:
+        "AlwaysCreate"??媛\xc2\x80) 吏\xc2\x80?뺣릺?덇린 ?뚮Ц??"Debug\\CompilerIdC.tlog\\unsuccessfulbuild"??瑜? 留뚮뱾怨??덉뒿?덈떎.
+        "Debug\\CompilerIdC.tlog\\unsuccessfulbuild"???곌껐(touching)?섍퀬 ?덉뒿?덈떎.
+      VcpkgTripletSelection:
+        Using triplet "x64-windows" from "D:\\GIT\\vcpkg\\installed\\x64-windows\\"
+        Using normalized configuration "Release"
+      ClCompile:
+        C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX64\\x64\\CL.exe /c /I"D:\\GIT\\vcpkg\\installed\\x64-windows\\include" /nologo /W0 /WX- /diagnostics:column /Od /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\\\" /Fd"Debug\\vc143.pdb" /external:W0 /Gd /TC /FC /errorReport:queue CMakeCCompilerId.c
+        CMakeCCompilerId.c
+      Link:
+        C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:".\\CompilerIdC.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:"D:\\GIT\\vcpkg\\installed\\x64-windows\\lib" /LIBPATH:"D:\\GIT\\vcpkg\\installed\\x64-windows\\lib\\manual-link" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib "D:\\GIT\\vcpkg\\installed\\x64-windows\\lib\\*.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\\CompilerIdC.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\\CompilerIdC.lib" /MACHINE:X64 Debug\\CMakeCCompilerId.obj
+        CompilerIdC.vcxproj -> C:\\Users\\sttgp\\Downloads\\protobuf-cpp-3.21.12\\protobuf-3.21.12\\solution\\CMakeFiles\\3.31.3\\CompilerIdC\\CompilerIdC.exe
+      AppLocalFromInstalled:
+        pwsh.exe -ExecutionPolicy Bypass -noprofile -File "D:\\GIT\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\sttgp\\Downloads\\protobuf-cpp-3.21.12\\protobuf-3.21.12\\solution\\CMakeFiles\\3.31.3\\CompilerIdC\\CompilerIdC.exe" "D:\\GIT\\vcpkg\\installed\\x64-windows\\bin" "Debug\\CompilerIdC.tlog\\CompilerIdC.write.1u.tlog" "Debug\\vcpkg.applocal.log"
+        'pwsh.exe'?\xc2\x80(?? ?대? ?먮뒗 ?몃? 紐낅졊, ?ㅽ뻾?????덈뒗 ?꾨줈洹몃옩, ?먮뒗
+        諛곗튂 ?뚯씪???꾨떃?덈떎.
+        "pwsh.exe -ExecutionPolicy Bypass -noprofile -File "D:\\GIT\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\sttgp\\Downloads\\protobuf-cpp-3.21.12\\protobuf-3.21.12\\solution\\CMakeFiles\\3.31.3\\CompilerIdC\\CompilerIdC.exe" "D:\\GIT\\vcpkg\\installed\\x64-windows\\bin" "Debug\\CompilerIdC.tlog\\CompilerIdC.write.1u.tlog" "Debug\\vcpkg.applocal.log"" 紐낅졊??醫낅즺?섏뿀?듬땲??肄붾뱶: 9009).
+        "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -ExecutionPolicy Bypass -noprofile -File "D:\\GIT\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\sttgp\\Downloads\\protobuf-cpp-3.21.12\\protobuf-3.21.12\\solution\\CMakeFiles\\3.31.3\\CompilerIdC\\CompilerIdC.exe" "D:\\GIT\\vcpkg\\installed\\x64-windows\\bin" "Debug\\CompilerIdC.tlog\\CompilerIdC.write.1u.tlog" "Debug\\vcpkg.applocal.log"
+      PostBuildEvent:
+        for %%i in (cl.exe) do @echo CMAKE_C_COMPILER=%%~$PATH:i
+        :VCEnd
+        CMAKE_C_COMPILER=C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe
+      FinalizeBuildStatus:
+        "Debug\\CompilerIdC.tlog\\unsuccessfulbuild" ?뚯씪????젣?섍퀬 ?덉뒿?덈떎.
+        "Debug\\CompilerIdC.tlog\\CompilerIdC.lastbuildstate"???곌껐(touching)?섍퀬 ?덉뒿?덈떎.
+      "C:\\Users\\sttgp\\Downloads\\protobuf-cpp-3.21.12\\protobuf-3.21.12\\solution\\CMakeFiles\\3.31.3\\CompilerIdC\\CompilerIdC.vcxproj" ?꾨줈?앺듃瑜?鍮뚮뱶?덉뒿?덈떎(湲곕낯 ?\xc2\x80??.
+      
+      鍮뚮뱶?덉뒿?덈떎.
+          寃쎄퀬 0媛?
+          ?ㅻ쪟 0媛?
+      
+      寃쎄낵 ?쒓컙: 00:00:01.20
+      
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.exe"
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.vcxproj"
+      
+      The C compiler identification is MSVC, found in:
+        C:/Users/sttgp/Downloads/protobuf-cpp-3.21.12/protobuf-3.21.12/solution/CMakeFiles/3.31.3/CompilerIdC/CompilerIdC.exe
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:5 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+      Compiler:  
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      msbuild 踰꾩쟾 17.12.12+1cce77968(.NET Framework??
+      鍮뚮뱶 ?쒖옉: 2025-01-05 ?ㅽ썑 11:11:47
+      
+      1 ?몃뱶??"C:\\Users\\sttgp\\Downloads\\protobuf-cpp-3.21.12\\protobuf-3.21.12\\solution\\CMakeFiles\\3.31.3\\CompilerIdCXX\\CompilerIdCXX.vcxproj" ?꾨줈?앺듃(湲곕낯 ?\xc2\x80???낅땲??
+      PrepareForBuild:
+        "Debug\\" ?붾젆?곕━瑜?留뚮뱾怨??덉뒿?덈떎.
+        援ъ“??異쒕젰???ъ슜?????덉뒿?덈떎. 而댄뙆?쇰윭 吏꾨떒???쒖떇?\xc2\x80 ?ㅻ쪟 怨꾩링 援ъ“瑜?諛섏쁺?⑸땲?? ?먯꽭???댁슜?\xc2\x80 https://aka.ms/cpp/structured-output??李몄“?섏꽭??
+        "Debug\\CompilerIdCXX.tlog\\" ?붾젆?곕━瑜?留뚮뱾怨??덉뒿?덈떎.
+      InitializeBuildStatus:
+        "AlwaysCreate"??媛\xc2\x80) 吏\xc2\x80?뺣릺?덇린 ?뚮Ц??"Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild"??瑜? 留뚮뱾怨??덉뒿?덈떎.
+        "Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild"???곌껐(touching)?섍퀬 ?덉뒿?덈떎.
+      VcpkgTripletSelection:
+        Using triplet "x64-windows" from "D:\\GIT\\vcpkg\\installed\\x64-windows\\"
+        Using normalized configuration "Release"
+      ClCompile:
+        C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX64\\x64\\CL.exe /c /I"D:\\GIT\\vcpkg\\installed\\x64-windows\\include" /nologo /W0 /WX- /diagnostics:column /Od /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\\\" /Fd"Debug\\vc143.pdb" /external:W0 /Gd /TP /FC /errorReport:queue CMakeCXXCompilerId.cpp
+        CMakeCXXCompilerId.cpp
+      Link:
+        C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:".\\CompilerIdCXX.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:"D:\\GIT\\vcpkg\\installed\\x64-windows\\lib" /LIBPATH:"D:\\GIT\\vcpkg\\installed\\x64-windows\\lib\\manual-link" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib "D:\\GIT\\vcpkg\\installed\\x64-windows\\lib\\*.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\\CompilerIdCXX.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\\CompilerIdCXX.lib" /MACHINE:X64 Debug\\CMakeCXXCompilerId.obj
+        CompilerIdCXX.vcxproj -> C:\\Users\\sttgp\\Downloads\\protobuf-cpp-3.21.12\\protobuf-3.21.12\\solution\\CMakeFiles\\3.31.3\\CompilerIdCXX\\CompilerIdCXX.exe
+      AppLocalFromInstalled:
+        pwsh.exe -ExecutionPolicy Bypass -noprofile -File "D:\\GIT\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\sttgp\\Downloads\\protobuf-cpp-3.21.12\\protobuf-3.21.12\\solution\\CMakeFiles\\3.31.3\\CompilerIdCXX\\CompilerIdCXX.exe" "D:\\GIT\\vcpkg\\installed\\x64-windows\\bin" "Debug\\CompilerIdCXX.tlog\\CompilerIdCXX.write.1u.tlog" "Debug\\vcpkg.applocal.log"
+        'pwsh.exe'?\xc2\x80(?? ?대? ?먮뒗 ?몃? 紐낅졊, ?ㅽ뻾?????덈뒗 ?꾨줈洹몃옩, ?먮뒗
+        諛곗튂 ?뚯씪???꾨떃?덈떎.
+        "pwsh.exe -ExecutionPolicy Bypass -noprofile -File "D:\\GIT\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\sttgp\\Downloads\\protobuf-cpp-3.21.12\\protobuf-3.21.12\\solution\\CMakeFiles\\3.31.3\\CompilerIdCXX\\CompilerIdCXX.exe" "D:\\GIT\\vcpkg\\installed\\x64-windows\\bin" "Debug\\CompilerIdCXX.tlog\\CompilerIdCXX.write.1u.tlog" "Debug\\vcpkg.applocal.log"" 紐낅졊??醫낅즺?섏뿀?듬땲??肄붾뱶: 9009).
+        "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -ExecutionPolicy Bypass -noprofile -File "D:\\GIT\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\sttgp\\Downloads\\protobuf-cpp-3.21.12\\protobuf-3.21.12\\solution\\CMakeFiles\\3.31.3\\CompilerIdCXX\\CompilerIdCXX.exe" "D:\\GIT\\vcpkg\\installed\\x64-windows\\bin" "Debug\\CompilerIdCXX.tlog\\CompilerIdCXX.write.1u.tlog" "Debug\\vcpkg.applocal.log"
+      PostBuildEvent:
+        for %%i in (cl.exe) do @echo CMAKE_CXX_COMPILER=%%~$PATH:i
+        :VCEnd
+        CMAKE_CXX_COMPILER=C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe
+      FinalizeBuildStatus:
+        "Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild" ?뚯씪????젣?섍퀬 ?덉뒿?덈떎.
+        "Debug\\CompilerIdCXX.tlog\\CompilerIdCXX.lastbuildstate"???곌껐(touching)?섍퀬 ?덉뒿?덈떎.
+      "C:\\Users\\sttgp\\Downloads\\protobuf-cpp-3.21.12\\protobuf-3.21.12\\solution\\CMakeFiles\\3.31.3\\CompilerIdCXX\\CompilerIdCXX.vcxproj" ?꾨줈?앺듃瑜?鍮뚮뱶?덉뒿?덈떎(湲곕낯 ?\xc2\x80??.
+      
+      鍮뚮뱶?덉뒿?덈떎.
+          寃쎄퀬 0媛?
+          ?ㅻ쪟 0媛?
+      
+      寃쎄낵 ?쒓컙: 00:00:00.96
+      
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.exe"
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.vcxproj"
+      
+      The CXX compiler identification is MSVC, found in:
+        C:/Users/sttgp/Downloads/protobuf-cpp-3.21.12/protobuf-3.21.12/solution/CMakeFiles/3.31.3/CompilerIdCXX/CompilerIdCXX.exe
+      
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/CMakeDetermineCompilerABI.cmake:74 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:5 (project)"
+    checks:
+      - "Detecting C compiler ABI info"
+    directories:
+      source: "C:/Users/sttgp/Downloads/protobuf-cpp-3.21.12/protobuf-3.21.12/solution/CMakeFiles/CMakeScratch/TryCompile-0cfuem"
+      binary: "C:/Users/sttgp/Downloads/protobuf-cpp-3.21.12/protobuf-3.21.12/solution/CMakeFiles/CMakeScratch/TryCompile-0cfuem"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W3"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+    buildResult:
+      variable: "CMAKE_C_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/sttgp/Downloads/protobuf-cpp-3.21.12/protobuf-3.21.12/solution/CMakeFiles/CMakeScratch/TryCompile-0cfuem'
+        
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_76e79.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        msbuild 踰꾩쟾 17.12.12+1cce77968(.NET Framework??
+        鍮뚮뱶 ?쒖옉: 2025-01-05 ?ㅽ썑 11:11:48
+        
+        1 ?몃뱶??"C:\\Users\\sttgp\\Downloads\\protobuf-cpp-3.21.12\\protobuf-3.21.12\\solution\\CMakeFiles\\CMakeScratch\\TryCompile-0cfuem\\cmTC_76e79.vcxproj" ?꾨줈?앺듃(湲곕낯 ?\xc2\x80???낅땲??
+        PrepareForBuild:
+          "cmTC_76e79.dir\\Debug\\" ?붾젆?곕━瑜?留뚮뱾怨??덉뒿?덈떎.
+          援ъ“??異쒕젰???ъ슜?????덉뒿?덈떎. 而댄뙆?쇰윭 吏꾨떒???쒖떇?\xc2\x80 ?ㅻ쪟 怨꾩링 援ъ“瑜?諛섏쁺?⑸땲?? ?먯꽭???댁슜?\xc2\x80 https://aka.ms/cpp/structured-output??李몄“?섏꽭??
+          "C:\\Users\\sttgp\\Downloads\\protobuf-cpp-3.21.12\\protobuf-3.21.12\\solution\\CMakeFiles\\CMakeScratch\\TryCompile-0cfuem\\Debug\\" ?붾젆?곕━瑜?留뚮뱾怨??덉뒿?덈떎.
+          "cmTC_76e79.dir\\Debug\\cmTC_76e79.tlog\\" ?붾젆?곕━瑜?留뚮뱾怨??덉뒿?덈떎.
+        InitializeBuildStatus:
+          "AlwaysCreate"??媛\xc2\x80) 吏\xc2\x80?뺣릺?덇린 ?뚮Ц??"cmTC_76e79.dir\\Debug\\cmTC_76e79.tlog\\unsuccessfulbuild"??瑜? 留뚮뱾怨??덉뒿?덈떎.
+          "cmTC_76e79.dir\\Debug\\cmTC_76e79.tlog\\unsuccessfulbuild"???곌껐(touching)?섍퀬 ?덉뒿?덈떎.
+        VcpkgTripletSelection:
+          Using triplet "x64-windows" from "D:\\GIT\\vcpkg\\installed\\x64-windows\\"
+          Using normalized configuration "Debug"
+        ClCompile:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX64\\x64\\CL.exe /c /I"D:\\GIT\\vcpkg\\installed\\x64-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_76e79.dir\\Debug\\\\" /Fd"cmTC_76e79.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.31\\Modules\\CMakeCCompilerABI.c"
+          Microsoft (R) C/C++ 理쒖쟻??而댄뙆?쇰윭 踰꾩쟾 19.38.33143(x64)
+          Copyright (c) Microsoft Corporation. All rights reserved.
+          cl /c /I"D:\\GIT\\vcpkg\\installed\\x64-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_76e79.dir\\Debug\\\\" /Fd"cmTC_76e79.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.31\\Modules\\CMakeCCompilerABI.c"
+          CMakeCCompilerABI.c
+        Link:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\sttgp\\Downloads\\protobuf-cpp-3.21.12\\protobuf-3.21.12\\solution\\CMakeFiles\\CMakeScratch\\TryCompile-0cfuem\\Debug\\cmTC_76e79.exe" /INCREMENTAL /ILK:"cmTC_76e79.dir\\Debug\\cmTC_76e79.ilk" /NOLOGO /LIBPATH:"D:\\GIT\\vcpkg\\installed\\x64-windows\\debug\\lib" /LIBPATH:"D:\\GIT\\vcpkg\\installed\\x64-windows\\debug\\lib\\manual-link" kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib "D:\\GIT\\vcpkg\\installed\\x64-windows\\debug\\lib\\*.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/sttgp/Downloads/protobuf-cpp-3.21.12/protobuf-3.21.12/solution/CMakeFiles/CMakeScratch/TryCompile-0cfuem/Debug/cmTC_76e79.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/sttgp/Downloads/protobuf-cpp-3.21.12/protobuf-3.21.12/solution/CMakeFiles/CMakeScratch/TryCompile-0cfuem/Debug/cmTC_76e79.lib" /MACHINE:X64  /machine:x64 cmTC_76e79.dir\\Debug\\CMakeCCompilerABI.obj
+          cmTC_76e79.vcxproj -> C:\\Users\\sttgp\\Downloads\\protobuf-cpp-3.21.12\\protobuf-3.21.12\\solution\\CMakeFiles\\CMakeScratch\\TryCompile-0cfuem\\Debug\\cmTC_76e79.exe
+        AppLocalFromInstalled:
+          pwsh.exe -ExecutionPolicy Bypass -noprofile -File "D:\\GIT\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\sttgp\\Downloads\\protobuf-cpp-3.21.12\\protobuf-3.21.12\\solution\\CMakeFiles\\CMakeScratch\\TryCompile-0cfuem\\Debug\\cmTC_76e79.exe" "D:\\GIT\\vcpkg\\installed\\x64-windows\\debug\\bin" "cmTC_76e79.dir\\Debug\\cmTC_76e79.tlog\\cmTC_76e79.write.1u.tlog" "cmTC_76e79.dir\\Debug\\vcpkg.applocal.log"
+          'pwsh.exe'?\xc2\x80(?? ?대? ?먮뒗 ?몃? 紐낅졊, ?ㅽ뻾?????덈뒗 ?꾨줈洹몃옩, ?먮뒗
+          諛곗튂 ?뚯씪???꾨떃?덈떎.
+          "pwsh.exe -ExecutionPolicy Bypass -noprofile -File "D:\\GIT\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\sttgp\\Downloads\\protobuf-cpp-3.21.12\\protobuf-3.21.12\\solution\\CMakeFiles\\CMakeScratch\\TryCompile-0cfuem\\Debug\\cmTC_76e79.exe" "D:\\GIT\\vcpkg\\installed\\x64-windows\\debug\\bin" "cmTC_76e79.dir\\Debug\\cmTC_76e79.tlog\\cmTC_76e79.write.1u.tlog" "cmTC_76e79.dir\\Debug\\vcpkg.applocal.log"" 紐낅졊??醫낅즺?섏뿀?듬땲??肄붾뱶: 9009).
+          "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -ExecutionPolicy Bypass -noprofile -File "D:\\GIT\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\sttgp\\Downloads\\protobuf-cpp-3.21.12\\protobuf-3.21.12\\solution\\CMakeFiles\\CMakeScratch\\TryCompile-0cfuem\\Debug\\cmTC_76e79.exe" "D:\\GIT\\vcpkg\\installed\\x64-windows\\debug\\bin" "cmTC_76e79.dir\\Debug\\cmTC_76e79.tlog\\cmTC_76e79.write.1u.tlog" "cmTC_76e79.dir\\Debug\\vcpkg.applocal.log"
+        FinalizeBuildStatus:
+          "cmTC_76e79.dir\\Debug\\cmTC_76e79.tlog\\unsuccessfulbuild" ?뚯씪????젣?섍퀬 ?덉뒿?덈떎.
+          "cmTC_76e79.dir\\Debug\\cmTC_76e79.tlog\\cmTC_76e79.lastbuildstate"???곌껐(touching)?섍퀬 ?덉뒿?덈떎.
+        "C:\\Users\\sttgp\\Downloads\\protobuf-cpp-3.21.12\\protobuf-3.21.12\\solution\\CMakeFiles\\CMakeScratch\\TryCompile-0cfuem\\cmTC_76e79.vcxproj" ?꾨줈?앺듃瑜?鍮뚮뱶?덉뒿?덈떎(湲곕낯 ?\xc2\x80??.
+        
+        鍮뚮뱶?덉뒿?덈떎.
+            寃쎄퀬 0媛?
+            ?ㅻ쪟 0媛?
+        
+        寃쎄낵 ?쒓컙: 00:00:00.95
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/CMakeDetermineCompilerABI.cmake:218 (message)"
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:5 (project)"
+    message: |
+      Parsed C implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(\\.[a-z]+)?|link\\.exe|lld-link(\\.exe)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(\\.[a-z]+)?|link\\.exe|lld-link(\\.exe)?))("|,| |$)]
+        linker tool for 'C': C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.38.33130/bin/HostX64/x64/link.exe
+        implicit libs: []
+        implicit objs: []
+        implicit dirs: []
+        implicit fwks: []
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/Internal/CMakeDetermineLinkerId.cmake:40 (message)"
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/CMakeDetermineCompilerABI.cmake:255 (cmake_determine_linker_id)"
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:5 (project)"
+    message: |
+      Running the C compiler's linker: "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.38.33130/bin/HostX64/x64/link.exe" "-v"
+      Microsoft (R) Incremental Linker Version 14.38.33143.0
+      Copyright (C) Microsoft Corporation.  All rights reserved.
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/CMakeDetermineCompilerABI.cmake:74 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:5 (project)"
+    checks:
+      - "Detecting CXX compiler ABI info"
+    directories:
+      source: "C:/Users/sttgp/Downloads/protobuf-cpp-3.21.12/protobuf-3.21.12/solution/CMakeFiles/CMakeScratch/TryCompile-gjs8z6"
+      binary: "C:/Users/sttgp/Downloads/protobuf-cpp-3.21.12/protobuf-3.21.12/solution/CMakeFiles/CMakeScratch/TryCompile-gjs8z6"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /W3 /GR /EHsc"
+      CMAKE_CXX_SCAN_FOR_MODULES: "OFF"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+    buildResult:
+      variable: "CMAKE_CXX_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/sttgp/Downloads/protobuf-cpp-3.21.12/protobuf-3.21.12/solution/CMakeFiles/CMakeScratch/TryCompile-gjs8z6'
+        
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_429d1.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        msbuild 踰꾩쟾 17.12.12+1cce77968(.NET Framework??
+        鍮뚮뱶 ?쒖옉: 2025-01-05 ?ㅽ썑 11:11:49
+        
+        1 ?몃뱶??"C:\\Users\\sttgp\\Downloads\\protobuf-cpp-3.21.12\\protobuf-3.21.12\\solution\\CMakeFiles\\CMakeScratch\\TryCompile-gjs8z6\\cmTC_429d1.vcxproj" ?꾨줈?앺듃(湲곕낯 ?\xc2\x80???낅땲??
+        PrepareForBuild:
+          "cmTC_429d1.dir\\Debug\\" ?붾젆?곕━瑜?留뚮뱾怨??덉뒿?덈떎.
+          援ъ“??異쒕젰???ъ슜?????덉뒿?덈떎. 而댄뙆?쇰윭 吏꾨떒???쒖떇?\xc2\x80 ?ㅻ쪟 怨꾩링 援ъ“瑜?諛섏쁺?⑸땲?? ?먯꽭???댁슜?\xc2\x80 https://aka.ms/cpp/structured-output??李몄“?섏꽭??
+          "C:\\Users\\sttgp\\Downloads\\protobuf-cpp-3.21.12\\protobuf-3.21.12\\solution\\CMakeFiles\\CMakeScratch\\TryCompile-gjs8z6\\Debug\\" ?붾젆?곕━瑜?留뚮뱾怨??덉뒿?덈떎.
+          "cmTC_429d1.dir\\Debug\\cmTC_429d1.tlog\\" ?붾젆?곕━瑜?留뚮뱾怨??덉뒿?덈떎.
+        InitializeBuildStatus:
+          "AlwaysCreate"??媛\xc2\x80) 吏\xc2\x80?뺣릺?덇린 ?뚮Ц??"cmTC_429d1.dir\\Debug\\cmTC_429d1.tlog\\unsuccessfulbuild"??瑜? 留뚮뱾怨??덉뒿?덈떎.
+          "cmTC_429d1.dir\\Debug\\cmTC_429d1.tlog\\unsuccessfulbuild"???곌껐(touching)?섍퀬 ?덉뒿?덈떎.
+        VcpkgTripletSelection:
+          Using triplet "x64-windows" from "D:\\GIT\\vcpkg\\installed\\x64-windows\\"
+          Using normalized configuration "Debug"
+        ClCompile:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX64\\x64\\CL.exe /c /I"D:\\GIT\\vcpkg\\installed\\x64-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_429d1.dir\\Debug\\\\" /Fd"cmTC_429d1.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.31\\Modules\\CMakeCXXCompilerABI.cpp"
+          Microsoft (R) C/C++ 理쒖쟻??而댄뙆?쇰윭 踰꾩쟾 19.38.33143(x64)
+          Copyright (c) Microsoft Corporation. All rights reserved.
+          cl /c /I"D:\\GIT\\vcpkg\\installed\\x64-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_429d1.dir\\Debug\\\\" /Fd"cmTC_429d1.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.31\\Modules\\CMakeCXXCompilerABI.cpp"
+          CMakeCXXCompilerABI.cpp
+        Link:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\sttgp\\Downloads\\protobuf-cpp-3.21.12\\protobuf-3.21.12\\solution\\CMakeFiles\\CMakeScratch\\TryCompile-gjs8z6\\Debug\\cmTC_429d1.exe" /INCREMENTAL /ILK:"cmTC_429d1.dir\\Debug\\cmTC_429d1.ilk" /NOLOGO /LIBPATH:"D:\\GIT\\vcpkg\\installed\\x64-windows\\debug\\lib" /LIBPATH:"D:\\GIT\\vcpkg\\installed\\x64-windows\\debug\\lib\\manual-link" kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib "D:\\GIT\\vcpkg\\installed\\x64-windows\\debug\\lib\\*.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/sttgp/Downloads/protobuf-cpp-3.21.12/protobuf-3.21.12/solution/CMakeFiles/CMakeScratch/TryCompile-gjs8z6/Debug/cmTC_429d1.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/sttgp/Downloads/protobuf-cpp-3.21.12/protobuf-3.21.12/solution/CMakeFiles/CMakeScratch/TryCompile-gjs8z6/Debug/cmTC_429d1.lib" /MACHINE:X64  /machine:x64 cmTC_429d1.dir\\Debug\\CMakeCXXCompilerABI.obj
+          cmTC_429d1.vcxproj -> C:\\Users\\sttgp\\Downloads\\protobuf-cpp-3.21.12\\protobuf-3.21.12\\solution\\CMakeFiles\\CMakeScratch\\TryCompile-gjs8z6\\Debug\\cmTC_429d1.exe
+        AppLocalFromInstalled:
+          pwsh.exe -ExecutionPolicy Bypass -noprofile -File "D:\\GIT\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\sttgp\\Downloads\\protobuf-cpp-3.21.12\\protobuf-3.21.12\\solution\\CMakeFiles\\CMakeScratch\\TryCompile-gjs8z6\\Debug\\cmTC_429d1.exe" "D:\\GIT\\vcpkg\\installed\\x64-windows\\debug\\bin" "cmTC_429d1.dir\\Debug\\cmTC_429d1.tlog\\cmTC_429d1.write.1u.tlog" "cmTC_429d1.dir\\Debug\\vcpkg.applocal.log"
+          'pwsh.exe'?\xc2\x80(?? ?대? ?먮뒗 ?몃? 紐낅졊, ?ㅽ뻾?????덈뒗 ?꾨줈洹몃옩, ?먮뒗
+          諛곗튂 ?뚯씪???꾨떃?덈떎.
+          "pwsh.exe -ExecutionPolicy Bypass -noprofile -File "D:\\GIT\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\sttgp\\Downloads\\protobuf-cpp-3.21.12\\protobuf-3.21.12\\solution\\CMakeFiles\\CMakeScratch\\TryCompile-gjs8z6\\Debug\\cmTC_429d1.exe" "D:\\GIT\\vcpkg\\installed\\x64-windows\\debug\\bin" "cmTC_429d1.dir\\Debug\\cmTC_429d1.tlog\\cmTC_429d1.write.1u.tlog" "cmTC_429d1.dir\\Debug\\vcpkg.applocal.log"" 紐낅졊??醫낅즺?섏뿀?듬땲??肄붾뱶: 9009).
+          "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -ExecutionPolicy Bypass -noprofile -File "D:\\GIT\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\sttgp\\Downloads\\protobuf-cpp-3.21.12\\protobuf-3.21.12\\solution\\CMakeFiles\\CMakeScratch\\TryCompile-gjs8z6\\Debug\\cmTC_429d1.exe" "D:\\GIT\\vcpkg\\installed\\x64-windows\\debug\\bin" "cmTC_429d1.dir\\Debug\\cmTC_429d1.tlog\\cmTC_429d1.write.1u.tlog" "cmTC_429d1.dir\\Debug\\vcpkg.applocal.log"
+        FinalizeBuildStatus:
+          "cmTC_429d1.dir\\Debug\\cmTC_429d1.tlog\\unsuccessfulbuild" ?뚯씪????젣?섍퀬 ?덉뒿?덈떎.
+          "cmTC_429d1.dir\\Debug\\cmTC_429d1.tlog\\cmTC_429d1.lastbuildstate"???곌껐(touching)?섍퀬 ?덉뒿?덈떎.
+        "C:\\Users\\sttgp\\Downloads\\protobuf-cpp-3.21.12\\protobuf-3.21.12\\solution\\CMakeFiles\\CMakeScratch\\TryCompile-gjs8z6\\cmTC_429d1.vcxproj" ?꾨줈?앺듃瑜?鍮뚮뱶?덉뒿?덈떎(湲곕낯 ?\xc2\x80??.
+        
+        鍮뚮뱶?덉뒿?덈떎.
+            寃쎄퀬 0媛?
+            ?ㅻ쪟 0媛?
+        
+        寃쎄낵 ?쒓컙: 00:00:00.95
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/CMakeDetermineCompilerABI.cmake:218 (message)"
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:5 (project)"
+    message: |
+      Parsed CXX implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(\\.[a-z]+)?|link\\.exe|lld-link(\\.exe)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(\\.[a-z]+)?|link\\.exe|lld-link(\\.exe)?))("|,| |$)]
+        linker tool for 'CXX': C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.38.33130/bin/HostX64/x64/link.exe
+        implicit libs: []
+        implicit objs: []
+        implicit dirs: []
+        implicit fwks: []
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/Internal/CMakeDetermineLinkerId.cmake:40 (message)"
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/CMakeDetermineCompilerABI.cmake:255 (cmake_determine_linker_id)"
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:5 (project)"
+    message: |
+      Running the CXX compiler's linker: "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.38.33130/bin/HostX64/x64/link.exe" "-v"
+      Microsoft (R) Incremental Linker Version 14.38.33143.0
+      Copyright (C) Microsoft Corporation.  All rights reserved.
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/Internal/CheckSourceCompiles.cmake:108 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/Internal/CheckLinkerFlag.cmake:37 (cmake_check_source_compiles)"
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/CheckLinkerFlag.cmake:44 (cmake_check_linker_flag)"
+      - "C:/Users/sttgp/Downloads/protobuf-cpp-3.21.12/protobuf-3.21.12/CMakeLists.txt:149 (check_linker_flag)"
+      - "CMakeLists.txt:9 (include)"
+    checks:
+      - "Performing Test protobuf_HAVE_LD_VERSION_SCRIPT"
+    directories:
+      source: "C:/Users/sttgp/Downloads/protobuf-cpp-3.21.12/protobuf-3.21.12/solution/CMakeFiles/CMakeScratch/TryCompile-wuk6yt"
+      binary: "C:/Users/sttgp/Downloads/protobuf-cpp-3.21.12/protobuf-3.21.12/solution/CMakeFiles/CMakeScratch/TryCompile-wuk6yt"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /W3 /GR /EHsc"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+    buildResult:
+      variable: "protobuf_HAVE_LD_VERSION_SCRIPT"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/sttgp/Downloads/protobuf-cpp-3.21.12/protobuf-3.21.12/solution/CMakeFiles/CMakeScratch/TryCompile-wuk6yt'
+        
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_671bb.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        msbuild 踰꾩쟾 17.12.12+1cce77968(.NET Framework??
+        鍮뚮뱶 ?쒖옉: 2025-01-05 ?ㅽ썑 11:11:51
+        
+        1 ?몃뱶??"C:\\Users\\sttgp\\Downloads\\protobuf-cpp-3.21.12\\protobuf-3.21.12\\solution\\CMakeFiles\\CMakeScratch\\TryCompile-wuk6yt\\cmTC_671bb.vcxproj" ?꾨줈?앺듃(湲곕낯 ?\xc2\x80???낅땲??
+        PrepareForBuild:
+          "cmTC_671bb.dir\\Debug\\" ?붾젆?곕━瑜?留뚮뱾怨??덉뒿?덈떎.
+          援ъ“??異쒕젰???ъ슜?????덉뒿?덈떎. 而댄뙆?쇰윭 吏꾨떒???쒖떇?\xc2\x80 ?ㅻ쪟 怨꾩링 援ъ“瑜?諛섏쁺?⑸땲?? ?먯꽭???댁슜?\xc2\x80 https://aka.ms/cpp/structured-output??李몄“?섏꽭??
+          "C:\\Users\\sttgp\\Downloads\\protobuf-cpp-3.21.12\\protobuf-3.21.12\\solution\\CMakeFiles\\CMakeScratch\\TryCompile-wuk6yt\\Debug\\" ?붾젆?곕━瑜?留뚮뱾怨??덉뒿?덈떎.
+          "cmTC_671bb.dir\\Debug\\cmTC_671bb.tlog\\" ?붾젆?곕━瑜?留뚮뱾怨??덉뒿?덈떎.
+        InitializeBuildStatus:
+          "AlwaysCreate"??媛\xc2\x80) 吏\xc2\x80?뺣릺?덇린 ?뚮Ц??"cmTC_671bb.dir\\Debug\\cmTC_671bb.tlog\\unsuccessfulbuild"??瑜? 留뚮뱾怨??덉뒿?덈떎.
+          "cmTC_671bb.dir\\Debug\\cmTC_671bb.tlog\\unsuccessfulbuild"???곌껐(touching)?섍퀬 ?덉뒿?덈떎.
+        VcpkgTripletSelection:
+          Using triplet "x64-windows" from "D:\\GIT\\vcpkg\\installed\\x64-windows\\"
+          Using normalized configuration "Debug"
+        ClCompile:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX64\\x64\\CL.exe /c /I"D:\\GIT\\vcpkg\\installed\\x64-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D protobuf_HAVE_LD_VERSION_SCRIPT /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_671bb.dir\\Debug\\\\" /Fd"cmTC_671bb.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TP /errorReport:queue "C:\\Users\\sttgp\\Downloads\\protobuf-cpp-3.21.12\\protobuf-3.21.12\\solution\\CMakeFiles\\CMakeScratch\\TryCompile-wuk6yt\\src.cxx"
+          Microsoft (R) C/C++ 理쒖쟻??而댄뙆?쇰윭 踰꾩쟾 19.38.33143(x64)
+          Copyright (c) Microsoft Corporation. All rights reserved.
+          cl /c /I"D:\\GIT\\vcpkg\\installed\\x64-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D protobuf_HAVE_LD_VERSION_SCRIPT /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_671bb.dir\\Debug\\\\" /Fd"cmTC_671bb.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TP /errorReport:queue "C:\\Users\\sttgp\\Downloads\\protobuf-cpp-3.21.12\\protobuf-3.21.12\\solution\\CMakeFiles\\CMakeScratch\\TryCompile-wuk6yt\\src.cxx"
+          src.cxx
+        Link:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\sttgp\\Downloads\\protobuf-cpp-3.21.12\\protobuf-3.21.12\\solution\\CMakeFiles\\CMakeScratch\\TryCompile-wuk6yt\\Debug\\cmTC_671bb.exe" /INCREMENTAL /ILK:"cmTC_671bb.dir\\Debug\\cmTC_671bb.ilk" /NOLOGO /LIBPATH:"D:\\GIT\\vcpkg\\installed\\x64-windows\\debug\\lib" /LIBPATH:"D:\\GIT\\vcpkg\\installed\\x64-windows\\debug\\lib\\manual-link" kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib "D:\\GIT\\vcpkg\\installed\\x64-windows\\debug\\lib\\*.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/sttgp/Downloads/protobuf-cpp-3.21.12/protobuf-3.21.12/solution/CMakeFiles/CMakeScratch/TryCompile-wuk6yt/Debug/cmTC_671bb.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/sttgp/Downloads/protobuf-cpp-3.21.12/protobuf-3.21.12/solution/CMakeFiles/CMakeScratch/TryCompile-wuk6yt/Debug/cmTC_671bb.lib" /MACHINE:X64  /machine:x64 -Wl,--version-script=C:/Users/sttgp/Downloads/protobuf-cpp-3.21.12/protobuf-3.21.12/solution/cmaketest.map cmTC_671bb.dir\\Debug\\src.obj
+        LINK : warning LNK4044: '/Wl,--version-script=C:/Users/sttgp/Downloads/protobuf-cpp-3.21.12/protobuf-3.21.12/solution/cmaketest.map' ?듭뀡???몄떇?????놁뒿?덈떎. 臾댁떆?⑸땲?? [C:\\Users\\sttgp\\Downloads\\protobuf-cpp-3.21.12\\protobuf-3.21.12\\solution\\CMakeFiles\\CMakeScratch\\TryCompile-wuk6yt\\cmTC_671bb.vcxproj]
+          cmTC_671bb.vcxproj -> C:\\Users\\sttgp\\Downloads\\protobuf-cpp-3.21.12\\protobuf-3.21.12\\solution\\CMakeFiles\\CMakeScratch\\TryCompile-wuk6yt\\Debug\\cmTC_671bb.exe
+        AppLocalFromInstalled:
+          pwsh.exe -ExecutionPolicy Bypass -noprofile -File "D:\\GIT\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\sttgp\\Downloads\\protobuf-cpp-3.21.12\\protobuf-3.21.12\\solution\\CMakeFiles\\CMakeScratch\\TryCompile-wuk6yt\\Debug\\cmTC_671bb.exe" "D:\\GIT\\vcpkg\\installed\\x64-windows\\debug\\bin" "cmTC_671bb.dir\\Debug\\cmTC_671bb.tlog\\cmTC_671bb.write.1u.tlog" "cmTC_671bb.dir\\Debug\\vcpkg.applocal.log"
+          'pwsh.exe'?\xc2\x80(?? ?대? ?먮뒗 ?몃? 紐낅졊, ?ㅽ뻾?????덈뒗 ?꾨줈洹몃옩, ?먮뒗
+          諛곗튂 ?뚯씪???꾨떃?덈떎.
+          "pwsh.exe -ExecutionPolicy Bypass -noprofile -File "D:\\GIT\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\sttgp\\Downloads\\protobuf-cpp-3.21.12\\protobuf-3.21.12\\solution\\CMakeFiles\\CMakeScratch\\TryCompile-wuk6yt\\Debug\\cmTC_671bb.exe" "D:\\GIT\\vcpkg\\installed\\x64-windows\\debug\\bin" "cmTC_671bb.dir\\Debug\\cmTC_671bb.tlog\\cmTC_671bb.write.1u.tlog" "cmTC_671bb.dir\\Debug\\vcpkg.applocal.log"" 紐낅졊??醫낅즺?섏뿀?듬땲??肄붾뱶: 9009).
+          "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -ExecutionPolicy Bypass -noprofile -File "D:\\GIT\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\sttgp\\Downloads\\protobuf-cpp-3.21.12\\protobuf-3.21.12\\solution\\CMakeFiles\\CMakeScratch\\TryCompile-wuk6yt\\Debug\\cmTC_671bb.exe" "D:\\GIT\\vcpkg\\installed\\x64-windows\\debug\\bin" "cmTC_671bb.dir\\Debug\\cmTC_671bb.tlog\\cmTC_671bb.write.1u.tlog" "cmTC_671bb.dir\\Debug\\vcpkg.applocal.log"
+        FinalizeBuildStatus:
+          "cmTC_671bb.dir\\Debug\\cmTC_671bb.tlog\\unsuccessfulbuild" ?뚯씪????젣?섍퀬 ?덉뒿?덈떎.
+          "cmTC_671bb.dir\\Debug\\cmTC_671bb.tlog\\cmTC_671bb.lastbuildstate"???곌껐(touching)?섍퀬 ?덉뒿?덈떎.
+        "C:\\Users\\sttgp\\Downloads\\protobuf-cpp-3.21.12\\protobuf-3.21.12\\solution\\CMakeFiles\\CMakeScratch\\TryCompile-wuk6yt\\cmTC_671bb.vcxproj" ?꾨줈?앺듃瑜?鍮뚮뱶?덉뒿?덈떎(湲곕낯 ?\xc2\x80??.
+        
+        鍮뚮뱶?덉뒿?덈떎.
+        
+        "C:\\Users\\sttgp\\Downloads\\protobuf-cpp-3.21.12\\protobuf-3.21.12\\solution\\CMakeFiles\\CMakeScratch\\TryCompile-wuk6yt\\cmTC_671bb.vcxproj"(湲곕낯 ?\xc2\x80??(1)->
+        (Link ?\xc2\x80?? -> 
+          LINK : warning LNK4044: '/Wl,--version-script=C:/Users/sttgp/Downloads/protobuf-cpp-3.21.12/protobuf-3.21.12/solution/cmaketest.map' ?듭뀡???몄떇?????놁뒿?덈떎. 臾댁떆?⑸땲?? [C:\\Users\\sttgp\\Downloads\\protobuf-cpp-3.21.12\\protobuf-3.21.12\\solution\\CMakeFiles\\CMakeScratch\\TryCompile-wuk6yt\\cmTC_671bb.vcxproj]
+        
+            寃쎄퀬 1媛?
+            ?ㅻ쪟 0媛?
+        
+        寃쎄낵 ?쒓컙: 00:00:01.02
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/Internal/CheckSourceCompiles.cmake:108 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/CheckCSourceCompiles.cmake:58 (cmake_check_source_compiles)"
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/FindThreads.cmake:97 (CHECK_C_SOURCE_COMPILES)"
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/FindThreads.cmake:163 (_threads_check_libc)"
+      - "C:/Users/sttgp/Downloads/protobuf-cpp-3.21.12/protobuf-3.21.12/CMakeLists.txt:163 (find_package)"
+      - "CMakeLists.txt:9 (include)"
+    checks:
+      - "Performing Test CMAKE_HAVE_LIBC_PTHREAD"
+    directories:
+      source: "C:/Users/sttgp/Downloads/protobuf-cpp-3.21.12/protobuf-3.21.12/solution/CMakeFiles/CMakeScratch/TryCompile-7q9h80"
+      binary: "C:/Users/sttgp/Downloads/protobuf-cpp-3.21.12/protobuf-3.21.12/solution/CMakeFiles/CMakeScratch/TryCompile-7q9h80"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W3"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+    buildResult:
+      variable: "CMAKE_HAVE_LIBC_PTHREAD"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/sttgp/Downloads/protobuf-cpp-3.21.12/protobuf-3.21.12/solution/CMakeFiles/CMakeScratch/TryCompile-7q9h80'
+        
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_a5d1a.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        msbuild 踰꾩쟾 17.12.12+1cce77968(.NET Framework??
+        鍮뚮뱶 ?쒖옉: 2025-01-05 ?ㅽ썑 11:11:52
+        
+        1 ?몃뱶??"C:\\Users\\sttgp\\Downloads\\protobuf-cpp-3.21.12\\protobuf-3.21.12\\solution\\CMakeFiles\\CMakeScratch\\TryCompile-7q9h80\\cmTC_a5d1a.vcxproj" ?꾨줈?앺듃(湲곕낯 ?\xc2\x80???낅땲??
+        PrepareForBuild:
+          "cmTC_a5d1a.dir\\Debug\\" ?붾젆?곕━瑜?留뚮뱾怨??덉뒿?덈떎.
+          援ъ“??異쒕젰???ъ슜?????덉뒿?덈떎. 而댄뙆?쇰윭 吏꾨떒???쒖떇?\xc2\x80 ?ㅻ쪟 怨꾩링 援ъ“瑜?諛섏쁺?⑸땲?? ?먯꽭???댁슜?\xc2\x80 https://aka.ms/cpp/structured-output??李몄“?섏꽭??
+          "C:\\Users\\sttgp\\Downloads\\protobuf-cpp-3.21.12\\protobuf-3.21.12\\solution\\CMakeFiles\\CMakeScratch\\TryCompile-7q9h80\\Debug\\" ?붾젆?곕━瑜?留뚮뱾怨??덉뒿?덈떎.
+          "cmTC_a5d1a.dir\\Debug\\cmTC_a5d1a.tlog\\" ?붾젆?곕━瑜?留뚮뱾怨??덉뒿?덈떎.
+        InitializeBuildStatus:
+          "AlwaysCreate"??媛\xc2\x80) 吏\xc2\x80?뺣릺?덇린 ?뚮Ц??"cmTC_a5d1a.dir\\Debug\\cmTC_a5d1a.tlog\\unsuccessfulbuild"??瑜? 留뚮뱾怨??덉뒿?덈떎.
+          "cmTC_a5d1a.dir\\Debug\\cmTC_a5d1a.tlog\\unsuccessfulbuild"???곌껐(touching)?섍퀬 ?덉뒿?덈떎.
+        VcpkgTripletSelection:
+          Using triplet "x64-windows" from "D:\\GIT\\vcpkg\\installed\\x64-windows\\"
+          Using normalized configuration "Debug"
+        ClCompile:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX64\\x64\\CL.exe /c /I"D:\\GIT\\vcpkg\\installed\\x64-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CMAKE_HAVE_LIBC_PTHREAD /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_a5d1a.dir\\Debug\\\\" /Fd"cmTC_a5d1a.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "C:\\Users\\sttgp\\Downloads\\protobuf-cpp-3.21.12\\protobuf-3.21.12\\solution\\CMakeFiles\\CMakeScratch\\TryCompile-7q9h80\\src.c"
+          Microsoft (R) C/C++ 理쒖쟻??而댄뙆?쇰윭 踰꾩쟾 19.38.33143(x64)
+          Copyright (c) Microsoft Corporation. All rights reserved.
+          cl /c /I"D:\\GIT\\vcpkg\\installed\\x64-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CMAKE_HAVE_LIBC_PTHREAD /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_a5d1a.dir\\Debug\\\\" /Fd"cmTC_a5d1a.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "C:\\Users\\sttgp\\Downloads\\protobuf-cpp-3.21.12\\protobuf-3.21.12\\solution\\CMakeFiles\\CMakeScratch\\TryCompile-7q9h80\\src.c"
+          src.c
+        C:\\Users\\sttgp\\Downloads\\protobuf-cpp-3.21.12\\protobuf-3.21.12\\solution\\CMakeFiles\\CMakeScratch\\TryCompile-7q9h80\\src.c(1,10): error C1083: ?ы븿 ?뚯씪???????놁뒿?덈떎. 'pthread.h': No such file or directory [C:\\Users\\sttgp\\Downloads\\protobuf-cpp-3.21.12\\protobuf-3.21.12\\solution\\CMakeFiles\\CMakeScratch\\TryCompile-7q9h80\\cmTC_a5d1a.vcxproj]
+        "C:\\Users\\sttgp\\Downloads\\protobuf-cpp-3.21.12\\protobuf-3.21.12\\solution\\CMakeFiles\\CMakeScratch\\TryCompile-7q9h80\\cmTC_a5d1a.vcxproj" ?꾨줈?앺듃瑜?鍮뚮뱶?덉뒿?덈떎(湲곕낯 ?\xc2\x80??. - ?ㅽ뙣
+        
+        鍮뚮뱶?섏? 紐삵뻽?듬땲??
+        
+        "C:\\Users\\sttgp\\Downloads\\protobuf-cpp-3.21.12\\protobuf-3.21.12\\solution\\CMakeFiles\\CMakeScratch\\TryCompile-7q9h80\\cmTC_a5d1a.vcxproj"(湲곕낯 ?\xc2\x80??(1)->
+        (ClCompile ?\xc2\x80?? -> 
+          C:\\Users\\sttgp\\Downloads\\protobuf-cpp-3.21.12\\protobuf-3.21.12\\solution\\CMakeFiles\\CMakeScratch\\TryCompile-7q9h80\\src.c(1,10): error C1083: ?ы븿 ?뚯씪???????놁뒿?덈떎. 'pthread.h': No such file or directory [C:\\Users\\sttgp\\Downloads\\protobuf-cpp-3.21.12\\protobuf-3.21.12\\solution\\CMakeFiles\\CMakeScratch\\TryCompile-7q9h80\\cmTC_a5d1a.vcxproj]
+        
+            寃쎄퀬 0媛?
+            ?ㅻ쪟 1媛?
+        
+        寃쎄낵 ?쒓컙: 00:00:00.31
+        
+      exitCode: 1
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/CheckLibraryExists.cmake:78 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/FindThreads.cmake:112 (CHECK_LIBRARY_EXISTS)"
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/FindThreads.cmake:175 (_threads_check_lib)"
+      - "C:/Users/sttgp/Downloads/protobuf-cpp-3.21.12/protobuf-3.21.12/CMakeLists.txt:163 (find_package)"
+      - "CMakeLists.txt:9 (include)"
+    checks:
+      - "Looking for pthread_create in pthreads"
+    directories:
+      source: "C:/Users/sttgp/Downloads/protobuf-cpp-3.21.12/protobuf-3.21.12/solution/CMakeFiles/CMakeScratch/TryCompile-idwagl"
+      binary: "C:/Users/sttgp/Downloads/protobuf-cpp-3.21.12/protobuf-3.21.12/solution/CMakeFiles/CMakeScratch/TryCompile-idwagl"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W3"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+    buildResult:
+      variable: "CMAKE_HAVE_PTHREADS_CREATE"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/sttgp/Downloads/protobuf-cpp-3.21.12/protobuf-3.21.12/solution/CMakeFiles/CMakeScratch/TryCompile-idwagl'
+        
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_1137d.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        msbuild 踰꾩쟾 17.12.12+1cce77968(.NET Framework??
+        鍮뚮뱶 ?쒖옉: 2025-01-05 ?ㅽ썑 11:11:53
+        
+        1 ?몃뱶??"C:\\Users\\sttgp\\Downloads\\protobuf-cpp-3.21.12\\protobuf-3.21.12\\solution\\CMakeFiles\\CMakeScratch\\TryCompile-idwagl\\cmTC_1137d.vcxproj" ?꾨줈?앺듃(湲곕낯 ?\xc2\x80???낅땲??
+        PrepareForBuild:
+          "cmTC_1137d.dir\\Debug\\" ?붾젆?곕━瑜?留뚮뱾怨??덉뒿?덈떎.
+          援ъ“??異쒕젰???ъ슜?????덉뒿?덈떎. 而댄뙆?쇰윭 吏꾨떒???쒖떇?\xc2\x80 ?ㅻ쪟 怨꾩링 援ъ“瑜?諛섏쁺?⑸땲?? ?먯꽭???댁슜?\xc2\x80 https://aka.ms/cpp/structured-output??李몄“?섏꽭??
+          "C:\\Users\\sttgp\\Downloads\\protobuf-cpp-3.21.12\\protobuf-3.21.12\\solution\\CMakeFiles\\CMakeScratch\\TryCompile-idwagl\\Debug\\" ?붾젆?곕━瑜?留뚮뱾怨??덉뒿?덈떎.
+          "cmTC_1137d.dir\\Debug\\cmTC_1137d.tlog\\" ?붾젆?곕━瑜?留뚮뱾怨??덉뒿?덈떎.
+        InitializeBuildStatus:
+          "AlwaysCreate"??媛\xc2\x80) 吏\xc2\x80?뺣릺?덇린 ?뚮Ц??"cmTC_1137d.dir\\Debug\\cmTC_1137d.tlog\\unsuccessfulbuild"??瑜? 留뚮뱾怨??덉뒿?덈떎.
+          "cmTC_1137d.dir\\Debug\\cmTC_1137d.tlog\\unsuccessfulbuild"???곌껐(touching)?섍퀬 ?덉뒿?덈떎.
+        VcpkgTripletSelection:
+          Using triplet "x64-windows" from "D:\\GIT\\vcpkg\\installed\\x64-windows\\"
+          Using normalized configuration "Debug"
+        ClCompile:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX64\\x64\\CL.exe /c /I"D:\\GIT\\vcpkg\\installed\\x64-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_1137d.dir\\Debug\\\\" /Fd"cmTC_1137d.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "C:\\Users\\sttgp\\Downloads\\protobuf-cpp-3.21.12\\protobuf-3.21.12\\solution\\CMakeFiles\\CMakeScratch\\TryCompile-idwagl\\CheckFunctionExists.c"
+          Microsoft (R) C/C++ 理쒖쟻??而댄뙆?쇰윭 踰꾩쟾 19.38.33143(x64)
+          Copyright (c) Microsoft Corporation. All rights reserved.
+          cl /c /I"D:\\GIT\\vcpkg\\installed\\x64-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_1137d.dir\\Debug\\\\" /Fd"cmTC_1137d.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "C:\\Users\\sttgp\\Downloads\\protobuf-cpp-3.21.12\\protobuf-3.21.12\\solution\\CMakeFiles\\CMakeScratch\\TryCompile-idwagl\\CheckFunctionExists.c"
+          CheckFunctionExists.c
+        Link:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\sttgp\\Downloads\\protobuf-cpp-3.21.12\\protobuf-3.21.12\\solution\\CMakeFiles\\CMakeScratch\\TryCompile-idwagl\\Debug\\cmTC_1137d.exe" /INCREMENTAL /ILK:"cmTC_1137d.dir\\Debug\\cmTC_1137d.ilk" /NOLOGO /LIBPATH:"D:\\GIT\\vcpkg\\installed\\x64-windows\\debug\\lib" /LIBPATH:"D:\\GIT\\vcpkg\\installed\\x64-windows\\debug\\lib\\manual-link" pthreads.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib "D:\\GIT\\vcpkg\\installed\\x64-windows\\debug\\lib\\*.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/sttgp/Downloads/protobuf-cpp-3.21.12/protobuf-3.21.12/solution/CMakeFiles/CMakeScratch/TryCompile-idwagl/Debug/cmTC_1137d.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/sttgp/Downloads/protobuf-cpp-3.21.12/protobuf-3.21.12/solution/CMakeFiles/CMakeScratch/TryCompile-idwagl/Debug/cmTC_1137d.lib" /MACHINE:X64  /machine:x64 cmTC_1137d.dir\\Debug\\CheckFunctionExists.obj
+        LINK : fatal error LNK1104: 'pthreads.lib' ?뚯씪???????놁뒿?덈떎. [C:\\Users\\sttgp\\Downloads\\protobuf-cpp-3.21.12\\protobuf-3.21.12\\solution\\CMakeFiles\\CMakeScratch\\TryCompile-idwagl\\cmTC_1137d.vcxproj]
+        "C:\\Users\\sttgp\\Downloads\\protobuf-cpp-3.21.12\\protobuf-3.21.12\\solution\\CMakeFiles\\CMakeScratch\\TryCompile-idwagl\\cmTC_1137d.vcxproj" ?꾨줈?앺듃瑜?鍮뚮뱶?덉뒿?덈떎(湲곕낯 ?\xc2\x80??. - ?ㅽ뙣
+        
+        鍮뚮뱶?섏? 紐삵뻽?듬땲??
+        
+        "C:\\Users\\sttgp\\Downloads\\protobuf-cpp-3.21.12\\protobuf-3.21.12\\solution\\CMakeFiles\\CMakeScratch\\TryCompile-idwagl\\cmTC_1137d.vcxproj"(湲곕낯 ?\xc2\x80??(1)->
+        (Link ?\xc2\x80?? -> 
+          LINK : fatal error LNK1104: 'pthreads.lib' ?뚯씪???????놁뒿?덈떎. [C:\\Users\\sttgp\\Downloads\\protobuf-cpp-3.21.12\\protobuf-3.21.12\\solution\\CMakeFiles\\CMakeScratch\\TryCompile-idwagl\\cmTC_1137d.vcxproj]
+        
+            寃쎄퀬 0媛?
+            ?ㅻ쪟 1媛?
+        
+        寃쎄낵 ?쒓컙: 00:00:00.41
+        
+      exitCode: 1
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/CheckLibraryExists.cmake:78 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/FindThreads.cmake:112 (CHECK_LIBRARY_EXISTS)"
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/FindThreads.cmake:176 (_threads_check_lib)"
+      - "C:/Users/sttgp/Downloads/protobuf-cpp-3.21.12/protobuf-3.21.12/CMakeLists.txt:163 (find_package)"
+      - "CMakeLists.txt:9 (include)"
+    checks:
+      - "Looking for pthread_create in pthread"
+    directories:
+      source: "C:/Users/sttgp/Downloads/protobuf-cpp-3.21.12/protobuf-3.21.12/solution/CMakeFiles/CMakeScratch/TryCompile-uk7y3q"
+      binary: "C:/Users/sttgp/Downloads/protobuf-cpp-3.21.12/protobuf-3.21.12/solution/CMakeFiles/CMakeScratch/TryCompile-uk7y3q"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W3"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+    buildResult:
+      variable: "CMAKE_HAVE_PTHREAD_CREATE"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/sttgp/Downloads/protobuf-cpp-3.21.12/protobuf-3.21.12/solution/CMakeFiles/CMakeScratch/TryCompile-uk7y3q'
+        
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_616ff.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        msbuild 踰꾩쟾 17.12.12+1cce77968(.NET Framework??
+        鍮뚮뱶 ?쒖옉: 2025-01-05 ?ㅽ썑 11:11:53
+        
+        1 ?몃뱶??"C:\\Users\\sttgp\\Downloads\\protobuf-cpp-3.21.12\\protobuf-3.21.12\\solution\\CMakeFiles\\CMakeScratch\\TryCompile-uk7y3q\\cmTC_616ff.vcxproj" ?꾨줈?앺듃(湲곕낯 ?\xc2\x80???낅땲??
+        PrepareForBuild:
+          "cmTC_616ff.dir\\Debug\\" ?붾젆?곕━瑜?留뚮뱾怨??덉뒿?덈떎.
+          援ъ“??異쒕젰???ъ슜?????덉뒿?덈떎. 而댄뙆?쇰윭 吏꾨떒???쒖떇?\xc2\x80 ?ㅻ쪟 怨꾩링 援ъ“瑜?諛섏쁺?⑸땲?? ?먯꽭???댁슜?\xc2\x80 https://aka.ms/cpp/structured-output??李몄“?섏꽭??
+          "C:\\Users\\sttgp\\Downloads\\protobuf-cpp-3.21.12\\protobuf-3.21.12\\solution\\CMakeFiles\\CMakeScratch\\TryCompile-uk7y3q\\Debug\\" ?붾젆?곕━瑜?留뚮뱾怨??덉뒿?덈떎.
+          "cmTC_616ff.dir\\Debug\\cmTC_616ff.tlog\\" ?붾젆?곕━瑜?留뚮뱾怨??덉뒿?덈떎.
+        InitializeBuildStatus:
+          "AlwaysCreate"??媛\xc2\x80) 吏\xc2\x80?뺣릺?덇린 ?뚮Ц??"cmTC_616ff.dir\\Debug\\cmTC_616ff.tlog\\unsuccessfulbuild"??瑜? 留뚮뱾怨??덉뒿?덈떎.
+          "cmTC_616ff.dir\\Debug\\cmTC_616ff.tlog\\unsuccessfulbuild"???곌껐(touching)?섍퀬 ?덉뒿?덈떎.
+        VcpkgTripletSelection:
+          Using triplet "x64-windows" from "D:\\GIT\\vcpkg\\installed\\x64-windows\\"
+          Using normalized configuration "Debug"
+        ClCompile:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX64\\x64\\CL.exe /c /I"D:\\GIT\\vcpkg\\installed\\x64-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_616ff.dir\\Debug\\\\" /Fd"cmTC_616ff.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "C:\\Users\\sttgp\\Downloads\\protobuf-cpp-3.21.12\\protobuf-3.21.12\\solution\\CMakeFiles\\CMakeScratch\\TryCompile-uk7y3q\\CheckFunctionExists.c"
+          Microsoft (R) C/C++ 理쒖쟻??而댄뙆?쇰윭 踰꾩쟾 19.38.33143(x64)
+          Copyright (c) Microsoft Corporation. All rights reserved.
+          cl /c /I"D:\\GIT\\vcpkg\\installed\\x64-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_616ff.dir\\Debug\\\\" /Fd"cmTC_616ff.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "C:\\Users\\sttgp\\Downloads\\protobuf-cpp-3.21.12\\protobuf-3.21.12\\solution\\CMakeFiles\\CMakeScratch\\TryCompile-uk7y3q\\CheckFunctionExists.c"
+          CheckFunctionExists.c
+        Link:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\sttgp\\Downloads\\protobuf-cpp-3.21.12\\protobuf-3.21.12\\solution\\CMakeFiles\\CMakeScratch\\TryCompile-uk7y3q\\Debug\\cmTC_616ff.exe" /INCREMENTAL /ILK:"cmTC_616ff.dir\\Debug\\cmTC_616ff.ilk" /NOLOGO /LIBPATH:"D:\\GIT\\vcpkg\\installed\\x64-windows\\debug\\lib" /LIBPATH:"D:\\GIT\\vcpkg\\installed\\x64-windows\\debug\\lib\\manual-link" pthread.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib "D:\\GIT\\vcpkg\\installed\\x64-windows\\debug\\lib\\*.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/sttgp/Downloads/protobuf-cpp-3.21.12/protobuf-3.21.12/solution/CMakeFiles/CMakeScratch/TryCompile-uk7y3q/Debug/cmTC_616ff.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/sttgp/Downloads/protobuf-cpp-3.21.12/protobuf-3.21.12/solution/CMakeFiles/CMakeScratch/TryCompile-uk7y3q/Debug/cmTC_616ff.lib" /MACHINE:X64  /machine:x64 cmTC_616ff.dir\\Debug\\CheckFunctionExists.obj
+        LINK : fatal error LNK1104: 'pthread.lib' ?뚯씪???????놁뒿?덈떎. [C:\\Users\\sttgp\\Downloads\\protobuf-cpp-3.21.12\\protobuf-3.21.12\\solution\\CMakeFiles\\CMakeScratch\\TryCompile-uk7y3q\\cmTC_616ff.vcxproj]
+        "C:\\Users\\sttgp\\Downloads\\protobuf-cpp-3.21.12\\protobuf-3.21.12\\solution\\CMakeFiles\\CMakeScratch\\TryCompile-uk7y3q\\cmTC_616ff.vcxproj" ?꾨줈?앺듃瑜?鍮뚮뱶?덉뒿?덈떎(湲곕낯 ?\xc2\x80??. - ?ㅽ뙣
+        
+        鍮뚮뱶?섏? 紐삵뻽?듬땲??
+        
+        "C:\\Users\\sttgp\\Downloads\\protobuf-cpp-3.21.12\\protobuf-3.21.12\\solution\\CMakeFiles\\CMakeScratch\\TryCompile-uk7y3q\\cmTC_616ff.vcxproj"(湲곕낯 ?\xc2\x80??(1)->
+        (Link ?\xc2\x80?? -> 
+          LINK : fatal error LNK1104: 'pthread.lib' ?뚯씪???????놁뒿?덈떎. [C:\\Users\\sttgp\\Downloads\\protobuf-cpp-3.21.12\\protobuf-3.21.12\\solution\\CMakeFiles\\CMakeScratch\\TryCompile-uk7y3q\\cmTC_616ff.vcxproj]
+        
+            寃쎄퀬 0媛?
+            ?ㅻ쪟 1媛?
+        
+        寃쎄낵 ?쒓컙: 00:00:00.41
+        
+      exitCode: 1
+...
