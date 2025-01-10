@@ -2,7 +2,7 @@
 #include "Session.h"
 #include "SocketUtils.h"
 #include "Service.h"
-#include "SendBuffer.h"
+
 /*--------------
 	Session
 ---------------*/
