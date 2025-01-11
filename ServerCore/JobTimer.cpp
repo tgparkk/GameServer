@@ -6,7 +6,7 @@
 	JobTimer
 ---------------*/
 
-void JobTimer::Reserve(uint64 tickAfter, weak_ptr<JobQueue> owner, JobRef job)
+void JobTimer::Reserve(uint64 tickAfter, weak_ptr<JobQueue> owner, std::shared_ptr<Job> job)
 {
 	const uint64 executeTick = ::GetTickCount64() + tickAfter;
 	JobData* jobData = ObjectPool<JobData>::Pop(owner, job);
@@ -40,7 +40,7 @@ void JobTimer::Distribute(uint64 now)
 
 	for (TimerItem& item : items)
 	{
-		if (JobQueueRef owner = item.jobData->owner.lock())
+		if (std::shared_ptr<JobQueue> owner = item.jobData->owner.lock())
 			owner->Push(item.jobData->job);
 
 		ObjectPool<JobData>::Push(item.jobData);

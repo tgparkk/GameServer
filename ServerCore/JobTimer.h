@@ -2,13 +2,13 @@
 
 struct JobData
 {
-	JobData(weak_ptr<JobQueue> owner, JobRef job) : owner(owner), job(job)
+	JobData(weak_ptr<JobQueue> owner, std::shared_ptr<Job> job) : owner(owner), job(job)
 	{
 
 	}
 
 	weak_ptr<JobQueue>	owner;
-	JobRef				job;
+	std::shared_ptr<Job>				job;
 };
 
 struct TimerItem
@@ -29,7 +29,7 @@ struct TimerItem
 class JobTimer
 {
 public:
-	void			Reserve(uint64 tickAfter, weak_ptr<JobQueue> owner, JobRef job);
+	void			Reserve(uint64 tickAfter, weak_ptr<JobQueue> owner, std::shared_ptr<Job> job);
 	void			Distribute(uint64 now);
 	void			Clear();
 

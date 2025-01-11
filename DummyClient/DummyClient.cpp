@@ -48,10 +48,10 @@ int main()
 
 	this_thread::sleep_for(1s);
 
-	ClientServiceRef service = MakeShared<ClientService>(
+	ClientServiceRef service = std::make_shared<ClientService>(
 		NetAddress(L"127.0.0.1", 7777),
-		MakeShared<IocpCore>(),
-		MakeShared<ServerSession>, // TODO : SessionManager 등
+		std::make_shared<IocpCore>(),
+		std::make_shared<ServerSession>, // TODO : SessionManager 등
 		1);
 
 	ASSERT_CRASH(service->Start());

@@ -17,7 +17,7 @@ Session::~Session()
 	SocketUtils::Close(_socket);
 }
 
-void Session::Send(SendBufferRef sendBuffer)
+void Session::Send(std::shared_ptr<SendBuffer> sendBuffer)
 {
 	if (IsConnected() == false)
 		return;
@@ -170,7 +170,7 @@ void Session::RegisterSend()
 		int32 writeSize = 0;
 		while (_sendQueue.empty() == false)
 		{
-			SendBufferRef sendBuffer = _sendQueue.front();
+			std::shared_ptr<SendBuffer> sendBuffer = _sendQueue.front();
 
 			writeSize += sendBuffer->WriteSize();
 			// TODO : 예외 체크
@@ -183,7 +183,7 @@ void Session::RegisterSend()
 	// Scatter-Gather (흩어져 있는 데이터들을 모아서 한 방에 보낸다)
 	Vector<WSABUF> wsaBufs;
 	wsaBufs.reserve(_sendEvent.sendBuffers.size());
-	for (SendBufferRef sendBuffer : _sendEvent.sendBuffers)
+	for (std::shared_ptr<SendBuffer> sendBuffer : _sendEvent.sendBuffers)
 	{
 		WSABUF wsaBuf;
 		wsaBuf.buf = reinterpret_cast<char*>(sendBuffer->Buffer());

@@ -14,12 +14,12 @@ enum class ServiceType : uint8
 	Service
 --------------*/
 
-using SessionFactory = function<SessionRef(void)>;
+using SessionFactory = function<std::shared_ptr<Session>(void)>;
 
 class Service : public enable_shared_from_this<Service>
 {
 public:
-	Service(ServiceType type, NetAddress address, IocpCoreRef core, SessionFactory factory, int32 maxSessionCount = 1);
+	Service(ServiceType type, NetAddress address, std::shared_ptr<IocpCore> core, SessionFactory factory, int32 maxSessionCount = 1);
 	virtual ~Service();
 
 	virtual bool		Start() abstract;
@@ -28,25 +28,25 @@ public:
 	virtual void		CloseService();
 	void				SetSessionFactory(SessionFactory func) { _sessionFactory = func; }
 
-	void				Broadcast(SendBufferRef sendBuffer);
-	SessionRef			CreateSession();
-	void				AddSession(SessionRef session);
-	void				ReleaseSession(SessionRef session);
+	void				Broadcast(std::shared_ptr<SendBuffer> sendBuffer);
+	std::shared_ptr<Session>			CreateSession();
+	void				AddSession(std::shared_ptr<Session> session);
+	void				ReleaseSession(std::shared_ptr<Session> session);
 	int32				GetCurrentSessionCount() { return _sessionCount; }
 	int32				GetMaxSessionCount() { return _maxSessionCount; }
 
 public:
 	ServiceType			GetServiceType() { return _type; }
 	NetAddress			GetNetAddress() { return _netAddress; }
-	IocpCoreRef& GetIocpCore() { return _iocpCore; }
+	std::shared_ptr<IocpCore>& GetIocpCore() { return _iocpCore; }
 
 protected:
 	USE_LOCK;
 	ServiceType			_type;
 	NetAddress			_netAddress = {};
-	IocpCoreRef			_iocpCore;
+	std::shared_ptr<IocpCore>			_iocpCore;
 
-	Set<SessionRef>		_sessions;
+	std::set<std::shared_ptr<Session>>		_sessions;
 	int32				_sessionCount = 0;
 	int32				_maxSessionCount = 0;
 	SessionFactory		_sessionFactory;
@@ -59,7 +59,7 @@ protected:
 class ClientService : public Service
 {
 public:
-	ClientService(NetAddress targetAddress, IocpCoreRef core, SessionFactory factory, int32 maxSessionCount = 1);
+	ClientService(NetAddress targetAddress, std::shared_ptr<IocpCore> core, SessionFactory factory, int32 maxSessionCount = 1);
 	virtual ~ClientService() {}
 
 	virtual bool	Start() override;
@@ -73,12 +73,12 @@ public:
 class ServerService : public Service
 {
 public:
-	ServerService(NetAddress targetAddress, IocpCoreRef core, SessionFactory factory, int32 maxSessionCount = 1);
+	ServerService(NetAddress targetAddress, std::shared_ptr<IocpCore> core, SessionFactory factory, int32 maxSessionCount = 1);
 	virtual ~ServerService() {}
 
 	virtual bool	Start() override;
 	virtual void	CloseService() override;
 
 private:
-	ListenerRef		_listener = nullptr;
+	std::shared_ptr<Listener>		_listener = nullptr;
 };

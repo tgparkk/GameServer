@@ -5,7 +5,7 @@
 	SendBuffer
 -----------------*/
 
-SendBuffer::SendBuffer(SendBufferChunkRef owner, BYTE* buffer, uint32 allocSize)
+SendBuffer::SendBuffer(std::shared_ptr<SendBufferChunk> owner, BYTE* buffer, uint32 allocSize)
 	: _owner(owner), _buffer(buffer), _allocSize(allocSize)
 {
 }
@@ -39,7 +39,7 @@ void SendBufferChunk::Reset()
 	_usedSize = 0;
 }
 
-SendBufferRef SendBufferChunk::Open(uint32 allocSize)
+std::shared_ptr<SendBuffer> SendBufferChunk::Open(uint32 allocSize)
 {
 	ASSERT_CRASH(allocSize <= SEND_BUFFER_CHUNK_SIZE);
 	ASSERT_CRASH(_open == false);
@@ -62,7 +62,7 @@ void SendBufferChunk::Close(uint32 writeSize)
 	SendBufferManager
 ----------------------*/
 
-SendBufferRef SendBufferManager::Open(uint32 size)
+std::shared_ptr<SendBuffer> SendBufferManager::Open(uint32 size)
 {
 	if (LSendBufferChunk == nullptr)
 	{
@@ -84,7 +84,7 @@ SendBufferRef SendBufferManager::Open(uint32 size)
 	return LSendBufferChunk->Open(size);
 }
 
-SendBufferChunkRef SendBufferManager::Pop()
+std::shared_ptr<SendBufferChunk> SendBufferManager::Pop()
 {
 	cout << "Pop SENDBUFFERCHUNK" << endl;
 
@@ -92,16 +92,16 @@ SendBufferChunkRef SendBufferManager::Pop()
 		WRITE_LOCK;
 		if (_sendBufferChunks.empty() == false)
 		{
-			SendBufferChunkRef sendBufferChunk = _sendBufferChunks.back();
+			std::shared_ptr<SendBufferChunk> sendBufferChunk = _sendBufferChunks.back();
 			_sendBufferChunks.pop_back();
 			return sendBufferChunk;
 		}
 	}
 
-	return SendBufferChunkRef(xnew<SendBufferChunk>(), PushGlobal);
+	return std::shared_ptr<SendBufferChunk>(xnew<SendBufferChunk>(), PushGlobal);
 }
 
-void SendBufferManager::Push(SendBufferChunkRef buffer)
+void SendBufferManager::Push(std::shared_ptr<SendBufferChunk> buffer)
 {
 	WRITE_LOCK;
 	_sendBufferChunks.push_back(buffer);
@@ -111,5 +111,5 @@ void SendBufferManager::PushGlobal(SendBufferChunk* buffer)
 {
 	cout << "PushGlobal SENDBUFFERCHUNK" << endl;
 
-	GSendBufferManager->Push(SendBufferChunkRef(buffer, PushGlobal));
+	GSendBufferManager->Push(std::shared_ptr<SendBufferChunk>(buffer, PushGlobal));
 }
