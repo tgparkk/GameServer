@@ -17,7 +17,7 @@ bool Handle_INVALID(PacketSessionRef& session, BYTE* buffer, int32 len)
 
 bool Handle_C_LOGIN(PacketSessionRef& session, Protocol::C_LOGIN& pkt)
 {
-	GameSessionRef gameSession = static_pointer_cast<GameSession>(session);
+	std::shared_ptr<GameSession> gameSession = static_pointer_cast<GameSession>(session);
 
 	// TODO : Validation 체크
 
@@ -35,7 +35,7 @@ bool Handle_C_LOGIN(PacketSessionRef& session, Protocol::C_LOGIN& pkt)
 		player->set_name("DB에서긁어온이름1");
 		player->set_playertype(Protocol::PLAYER_TYPE_KNIGHT);
 
-		PlayerRef playerRef = MakeShared<Player>();
+		std::shared_ptr<Player> playerRef = std::make_shared<Player>();
 		playerRef->playerId = idGenerator++;
 		playerRef->name = player->name();
 		playerRef->type = player->playertype();
@@ -49,7 +49,7 @@ bool Handle_C_LOGIN(PacketSessionRef& session, Protocol::C_LOGIN& pkt)
 		player->set_name("DB에서긁어온이름2");
 		player->set_playertype(Protocol::PLAYER_TYPE_MAGE);
 
-		PlayerRef playerRef = MakeShared<Player>();
+		std::shared_ptr<Player> playerRef = std::make_shared<Player>();
 		playerRef->playerId = idGenerator++;
 		playerRef->name = player->name();
 		playerRef->type = player->playertype();
@@ -66,7 +66,7 @@ bool Handle_C_LOGIN(PacketSessionRef& session, Protocol::C_LOGIN& pkt)
 
 bool Handle_C_ENTER_GAME(PacketSessionRef& session, Protocol::C_ENTER_GAME& pkt)
 {
-	GameSessionRef gameSession = static_pointer_cast<GameSession>(session);
+	std::shared_ptr<GameSession> gameSession = static_pointer_cast<GameSession>(session);
 
 	uint64 index = pkt.playerindex();
 	// TODO : Validation

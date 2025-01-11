@@ -17,7 +17,7 @@ enum
 	WORKER_TICK = 64
 };
 
-void DoWorkerJob(ServerServiceRef& service)
+void DoWorkerJob(std::shared_ptr<ServerService>& service)
 {
 	while (true)
 	{
@@ -42,10 +42,10 @@ int main()
 
 	ClientPacketHandler::Init();
 
-	ServerServiceRef service = MakeShared<ServerService>(
+	std::shared_ptr<ServerService> service = std::make_shared<ServerService>(
 		NetAddress(L"127.0.0.1", 7777),
-		MakeShared<IocpCore>(),
-		MakeShared<GameSession>, // TODO : SessionManager 등
+		std::make_shared<IocpCore>(),
+		std::make_shared<GameSession>, // TODO : SessionManager 등
 		100);
 
 	ASSERT_CRASH(service->Start());

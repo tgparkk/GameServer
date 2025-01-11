@@ -8,7 +8,8 @@ class IocpObject : public enable_shared_from_this<IocpObject>
 {
 public:
 	virtual HANDLE GetHandle() abstract;
-	virtual void Dispatch(class IocpEvent* iocpEvent, int32 numOfBytes = 0) abstract;
+	virtual void Dispatch(class IocpEvent* iocpEvent
+		, int32 numOfBytes = 0) abstract;
 };
 
 /*--------------
@@ -23,7 +24,7 @@ public:
 
 	HANDLE		GetHandle() { return _iocpHandle; }
 
-	bool		Register(IocpObjectRef iocpObject);
+	bool		Register(std::shared_ptr<IocpObject> iocpObject);
 	bool		Dispatch(uint32 timeoutMs = INFINITE);
 
 private:

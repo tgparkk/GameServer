@@ -17,7 +17,7 @@ public:
 
 public:
 	/* 외부에서 사용 */
-	bool StartAccept(ServerServiceRef service);
+	bool StartAccept(std::shared_ptr<ServerService> service);
 	void CloseSocket();
 
 public:
@@ -33,6 +33,6 @@ private:
 protected:
 	SOCKET _socket = INVALID_SOCKET;
 	Vector<AcceptEvent*> _acceptEvents;
-	ServerServiceRef _service;
+	std::shared_ptr<ServerService> _service;
 };
 
